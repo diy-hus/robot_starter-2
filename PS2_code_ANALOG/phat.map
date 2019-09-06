@@ -1,0 +1,21 @@
+RAM Allocation
+Variable                                                          Address   Size
+--------------------------------------------------------------------------------
+
+EEPROM Allocation
+Variable                                                          Address   Size
+--------------------------------------------------------------------------------
+
+Register Allocation
+Variable                                                          Register  Size
+--------------------------------------------------------------------------------
+rjoyx                                                             R5           1
+rjoyy                                                             R4           1
+ljoyx                                                             R7           1
+ljoyy                                                             R6           1
+byte4                                                             R9           1
+byte5                                                             R8           1
+ready                                                             R11          1
+P_Add                                                             R10          1
+int_var                                                           R13          1
+xx                                                                R12          1

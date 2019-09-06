@@ -1,0 +1,22 @@
+ SetTX_Mode();                    // Enable phat
+                delay_ms(10);
+                sprintf(TxBuf,"MaBCD: %u  ",MaTruyen);   
+                nRF24L01_TxPacket(TxBuf);         // Transmit Tx buffer data         
+                    SPI_RW_Reg(WRITE_REG+STATUS,0XFF); // Clear Bit Send   
+                    LED=1; 
+                SetRX_Mode();       
+                =================================
+                 if(nRF24L01_RxPacket(RxBuf)==1)         // Neu nhan duoc du lieu
+          {           
+                     
+               SetTX_Mode();                    // Enable phat
+            delay_ms(10);
+            sprintf(TxBuf,"DATA OK!");
+            nRF24L01_TxPacket(TxBuf);          // Transmit Tx buffer data     
+            	SPI_RW_Reg(WRITE_REG+STATUS,0XFF); // Clear Bit Send    
+		    
+               nRF24L01_TxPacket(TxBuf);          // Transmit Tx buffer data 
+               LED=1; 
+		     SetRX_Mode();          
+		} 
+      }

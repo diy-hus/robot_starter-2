@@ -1,0 +1,29 @@
+RAM Allocation
+Variable                                                          Address   Size
+--------------------------------------------------------------------------------
+glcd_state                                                        0x029F      29
+RC1                                                               0x02BC       2
+RC2                                                               0x02BE       2
+en_3                                                              0x02C0       2
+p                                                                 0x02C2       2
+buff                                                              0x02C4     150
+receive                                                           0x035A       8
+Code_tay_cam3                                                     0x0362       1
+Code_tay_cam4                                                     0x0363       1
+_seed                                                             0x0364       4
+gfx_addr                                                          0x0368       2
+gfx_buffer                                                        0x036A     504
+
+EEPROM Allocation
+Variable                                                          Address   Size
+--------------------------------------------------------------------------------
+
+Register Allocation
+Variable                                                          Register  Size
+--------------------------------------------------------------------------------
+Code_tay_cam1                                                     R5           1
+change                                                            R6,R7        2
+count                                                             R8,R9        2
+dem                                                               R10,R11      2
+dem_1                                                             R12,R13      2
+Code_tay_cam2                                                     R4           1

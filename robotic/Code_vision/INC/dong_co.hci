@@ -1,0 +1,10 @@
+VERSION:3 SOURCE_TIMESTAMP:4B036E68
+NODE:F LEVEL:0 LINE:31 "control_motor(unsigned char motor,unsigned char dir_motor,unsigned char speed)"
+NODE:F LEVEL:0 LINE:69 "di_tien(void)"
+NODE:F LEVEL:0 LINE:75 "di_lui(void)"
+NODE:F LEVEL:0 LINE:81 "dung_xe(void)"
+NODE:F LEVEL:0 LINE:87 "re_trai(void)"
+NODE:F LEVEL:0 LINE:93 "re_phai(void)"
+NODE:F LEVEL:0 LINE:99 "tay_nang(void)"
+NODE:F LEVEL:0 LINE:105 "tay_ha(void)"
+NODE:F LEVEL:0 LINE:111 "dung_tay(void)"

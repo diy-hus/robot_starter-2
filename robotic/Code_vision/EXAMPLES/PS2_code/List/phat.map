@@ -1,0 +1,41 @@
+RAM Allocation [bytes]
+Variable                                                                          Address   Size
+------------------------------------------------------------------------------------------------
+
+EEPROM Allocation [bytes]
+Variable                                                                          Address   Size
+------------------------------------------------------------------------------------------------
+
+Register Allocation
+Variable                                                                          Register  Size
+------------------------------------------------------------------------------------------------
+rjoyx                                                                             R5           1
+rjoyy                                                                             R4           1
+ljoyx                                                                             R7           1
+ljoyy                                                                             R6           1
+byte4                                                                             R9           1
+byte5                                                                             R8           1
+ready                                                                             R11          1
+P_Add                                                                             R10          1
+int_var                                                                           R13          1
+xx                                                                                R12          1
+
+FLASH Allocation [words]
+Function                                                                          Address   Size
+------------------------------------------------------------------------------------------------
+access                                                                            0x00051     47
+read_data                                                                         0x00080     19
+reset_status                                                                      0x00093      9
+timer0_ovf_isr                                                                    0x0009C     33
+change_analog                                                                     0x000CD     20
+SPI_RW                                                                            0x000E1     33
+RF_Init                                                                           0x00102      8
+RF_Write                                                                          0x0010A      8
+RF_Write_Address                                                                  0x00112     21
+RX_Mode_Active                                                                    0x00127      6
+TX_Mode_Active                                                                    0x0012D      5
+RF_Config                                                                         0x00132     27
+RF_TX_send                                                                        0x0014D     23
+init_systeam                                                                      0x00164     37
+ext_int0_isr                                                                      0x00189      5
+main                                                                              0x0018E    229

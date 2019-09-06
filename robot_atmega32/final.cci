@@ -1,0 +1,8 @@
+VERSION:3 SOURCE_TIMESTAMP:4B036E79
+NODE:V LEVEL:0 LINE:23 "Code_tay_cam1 -> R5"
+NODE:I LEVEL:0 LINE:24 "D:\Dropbox\2017\robotic\Code_vision\inc\mega32a.h"
+NODE:I LEVEL:0 LINE:25 "D:\Dropbox\2017\robotic\Code_vision\inc\dinh_nghia.h"
+NODE:I LEVEL:0 LINE:26 "D:\Dropbox\2017\robotic\Code_vision\inc\khoi_tao.h"
+NODE:I LEVEL:0 LINE:27 "D:\Dropbox\2017\robotic\Code_vision\inc\thu_phat.h"
+NODE:I LEVEL:0 LINE:28 "D:\Dropbox\2017\robotic\Code_vision\inc\dong_co.h"
+NODE:F LEVEL:0 LINE:31 "main(void)"
