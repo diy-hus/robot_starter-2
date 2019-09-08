@@ -1,4 +1,4 @@
-unsigned char Code_tay_cam1 = 0x89;
+unsigned char Code_tay_cam1 = 0xB5;
 #include <mega8.h>
 #include "INIT.h"
 #include "RF.h"
@@ -7,9 +7,9 @@ unsigned char Code_tay_cam1 = 0x89;
 
 void main(void)
 {
- Init_System();
- RF_Config();
- RF_Init();
+Init_System();
+RF_Config();
+RF_Init();
 control_motor(2,1,0);              
 control_motor(1,1,0);
 glcd_moveto(0,0);

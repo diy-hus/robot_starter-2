@@ -1,0 +1,11 @@
+VERSION:3 SOURCE_TIMESTAMP:4F267947
+NODE:V LEVEL:0 LINE:1 "Code_tay_cam1 -> R5"
+NODE:I LEVEL:0 LINE:2 "D:\Temp\robotic\Code_vision\inc\mega32a.h"
+NODE:I LEVEL:0 LINE:3 "D:\Temp\robotic\Code_vision\inc\delay.h"
+NODE:I LEVEL:0 LINE:4 "D:\Temp\robotic\Code_vision\inc\stdio.h"
+NODE:I LEVEL:0 LINE:5 "D:\Temp\robotic\Code_vision\inc\stdlib.h"
+NODE:I LEVEL:0 LINE:6 "C:\Users\108\Desktop\robot_starter-2\B5\define.c"
+NODE:I LEVEL:0 LINE:7 "C:\Users\108\Desktop\robot_starter-2\B5\init.c"
+NODE:I LEVEL:0 LINE:8 "C:\Users\108\Desktop\robot_starter-2\B5\dong_co.c"
+NODE:I LEVEL:0 LINE:9 "C:\Users\108\Desktop\robot_starter-2\B5\rf.c"
+NODE:F LEVEL:0 LINE:10 "main(void)"

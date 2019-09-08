@@ -127,26 +127,6 @@ void RF_TX_send(unsigned char RX_Address, data_send send)     //Function to send
   SPI_RW(send.digital_l);
   SPI_RW(send.digital_r);
   CSN=1;
-/*  delay_us(10);
-  CSN=0;
-  SPI_RW(0b10100000);
-  SPI_RW(send.a);
-  CSN=1;
-  delay_us(10);
-  CSN=0;
-  SPI_RW(0b10100000);
-  SPI_RW(send.b);
-  CSN=1;
-  delay_us(10);
-  CSN=0;
-  SPI_RW(0b10100000);
-  SPI_RW(send.c);
-  CSN=1;
-  delay_us(10);
-  CSN=0;
-  SPI_RW(0b10100000);
-  SPI_RW(send.d);
-  CSN=1;*/
   CE=1;
   delay_us(500);
   CE=0;

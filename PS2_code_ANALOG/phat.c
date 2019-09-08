@@ -4,7 +4,7 @@
 #include <string.h>
 #include "define.c"
 #include "giai_ma_ps.c"
-char P_Add = 0x97;         // dia chi cua tay cam ( cam giong voi dia chi cua robot)
+char P_Add = 0xB5;         // dia chi cua tay cam ( cam giong voi dia chi cua robot)
 #include "nrf_code.c"
 #include "khoi_tao.c"
  char int_var=0;

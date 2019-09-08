@@ -1128,7 +1128,7 @@ _tbl16_G100:
 
 ;GLOBAL REGISTER VARIABLES INITIALIZATION
 __REG_VARS:
-	.DB  0x89,0x0,0x0,0x0
+	.DB  0xB5,0x0,0x0,0x0
 	.DB  0x0,0x0,0x0,0x0
 	.DB  0x0
 
@@ -1215,7 +1215,7 @@ __GLOBAL_INI_END:
 	.ORG 0x160
 
 	.CSEG
-;char P_Add = 0x89;         // dia chi cua tay cam ( cam giong voi dia chi cua robot)
+;char P_Add = 0xB5;         // dia chi cua tay cam ( cam giong voi dia chi cua robot)
 ;#include <mega8.h>
 	#ifndef __SLEEP_DEFINED__
 	#define __SLEEP_DEFINED__
@@ -1544,14 +1544,14 @@ _0x2060004:
 ;        int digital;
 ;    }data_send;
 ;
-;unsigned char SPI_RW(unsigned char Buff);                                       //Function used for text moving
-;void RF_Init();                                                                 //Function allow to Initialize RF device
-;void RF_Write(unsigned char Reg_Add, unsigned char Value);                      //Function to write a value to a registe ...
-;void RF_Write_Address(unsigned char Address);                                   //Function to write TX and RX address
-;void RX_Mode_Active();                                                          //Function to put nRF in RX mode
-;void TX_Mode_Active();                                                          //Function to put nRF in TX mode
-;void RF_Config();                                                               //Function to config the nRF
-;void RF_TX_send(unsigned char RX_Address, data_send send);                 //Function to send data Value to a specify RX ...
+;unsigned char SPI_RW(unsigned char Buff);
+;void RF_Init();
+;void RF_Write(unsigned char Reg_Add, unsigned char Value);
+;void RF_Write_Address(unsigned char Address);
+;void RX_Mode_Active();
+;void TX_Mode_Active();
+;void RF_Config();
+;void RF_TX_send(unsigned char RX_Address, data_send send);
 ;
 ;
 ;unsigned char SPI_RW(unsigned char Buff)
@@ -1700,7 +1700,6 @@ _RF_Write_Address:
 ;}
 ; .FEND
 ;
-;
 ;void RX_Mode_Active()                                             //Function to put nRF in RX mode
 ;{
 _RX_Mode_Active:
@@ -1836,26 +1835,6 @@ _RF_TX_send:
 	RCALL _SPI_RW
 ;  CSN=1;
 	SBI  0x15,1
-;/*  delay_us(10);
-;  CSN=0;
-;  SPI_RW(0b10100000);
-;  SPI_RW(send.a);
-;  CSN=1;
-;  delay_us(10);
-;  CSN=0;
-;  SPI_RW(0b10100000);
-;  SPI_RW(send.b);
-;  CSN=1;
-;  delay_us(10);
-;  CSN=0;
-;  SPI_RW(0b10100000);
-;  SPI_RW(send.c);
-;  CSN=1;
-;  delay_us(10);
-;  CSN=0;
-;  SPI_RW(0b10100000);
-;  SPI_RW(send.d);
-;  CSN=1;*/
 ;  CE=1;
 	SBI  0x15,0
 ;  delay_us(500);
@@ -2002,207 +1981,173 @@ _0x5E:
 ; 0000 001E 		{
 ; 0000 001F 		TX_Mode_Active();
 	RCALL _TX_Mode_Active
-; 0000 0020 		if(ljoyy < 120)             {data.analog_l=1;} //analog trai tien
-	LDI  R30,LOW(120)
-	CP   R9,R30
-	BRSH _0x61
-	RCALL SUBOPT_0x9
-	RCALL SUBOPT_0xA
-; 0000 0021         else if(ljoyy > 135)        {data.analog_l=2;} //analog trai lui
-	RJMP _0x62
+; 0000 0020 		/*
+; 0000 0021         if(ljoyy < 80)             {data.analog_l=1;} //analog trai tien
+; 0000 0022         else if(ljoyy > 170)        {data.analog_l=2;} //analog trai lui
+; 0000 0023         else if(ljoyx < 80)        {data.analog_l=3;} //analog trai sang trai
+; 0000 0024         else if(ljoyx > 170)        {data.analog_l=4;} //analog trai sang phai
+; 0000 0025         else                        {data.analog_l=0;} //gia tri o giua
+; 0000 0026         if(rjoyy < 80)             {data.analog_r=1;} //analog phai tien
+; 0000 0027         else if(rjoyy > 170)        {data.analog_r=2;} //analog phai lui
+; 0000 0028         else if(rjoyx < 80)        {data.analog_r=3;} //analog phai sang trai
+; 0000 0029         else if(rjoyx > 170)        {data.analog_r=4;} //analog phai sang phai
+; 0000 002A         else                        {data.analog_r=0;} //gia tri o giua
+; 0000 002B         */
+; 0000 002C         data.analog_l = ljoyy;
+	MOV  R30,R9
+	LDI  R31,0
+	STS  _data,R30
+	STS  _data+1,R31
+; 0000 002D         data.analog_r = rjoyx;
+	__POINTW2MN _data,2
+	MOV  R30,R4
+	LDI  R31,0
+	ST   X+,R30
+	ST   X,R31
+; 0000 002E         if((byte4&Up) == 0)         {data.digital_l=1;}
+	SBRC R8,4
+	RJMP _0x61
+	LDI  R30,LOW(1)
+	LDI  R31,HIGH(1)
+	RJMP _0x82
+; 0000 002F         else if((byte4&Left) == 0)  {data.digital_l=3;}
 _0x61:
-	LDI  R30,LOW(135)
-	CP   R30,R9
-	BRSH _0x63
-	RCALL SUBOPT_0xB
-	RCALL SUBOPT_0xA
-; 0000 0022         else if(ljoyx < 120)        {data.analog_l=3;} //analog trai sang trai
-	RJMP _0x64
+	SBRC R8,7
+	RJMP _0x63
+	LDI  R30,LOW(3)
+	LDI  R31,HIGH(3)
+	RJMP _0x82
+; 0000 0030         else if((byte4&Down) == 0)  {data.digital_l=2;}
 _0x63:
-	LDI  R30,LOW(120)
-	CP   R6,R30
-	BRSH _0x65
-	RCALL SUBOPT_0xC
-	RCALL SUBOPT_0xA
-; 0000 0023         else if(ljoyx > 135)        {data.analog_l=4;} //analog trai sang phai
-	RJMP _0x66
+	SBRC R8,6
+	RJMP _0x65
+	LDI  R30,LOW(2)
+	LDI  R31,HIGH(2)
+	RJMP _0x82
+; 0000 0031         else if((byte4&Right) == 0) {data.digital_l=4;}
 _0x65:
-	LDI  R30,LOW(135)
-	CP   R30,R6
-	BRSH _0x67
-	RCALL SUBOPT_0xD
-	RCALL SUBOPT_0xA
-; 0000 0024         else                        {data.analog_l=0;} //gia tri o giua
-	RJMP _0x68
+	SBRC R8,5
+	RJMP _0x67
+	LDI  R30,LOW(4)
+	LDI  R31,HIGH(4)
+	RJMP _0x82
+; 0000 0032         else                        {data.digital_l=0;}
 _0x67:
 	LDI  R30,LOW(0)
-	STS  _data,R30
-	STS  _data+1,R30
-_0x68:
-_0x66:
-_0x64:
-_0x62:
-; 0000 0025         if(rjoyy < 120)             {data.analog_r=1;} //analog phai tien
-	LDI  R30,LOW(120)
-	CP   R7,R30
-	BRSH _0x69
-	RCALL SUBOPT_0x9
-	RJMP _0x92
-; 0000 0026         else if(rjoyy > 135)        {data.analog_r=2;} //analog phai lui
-_0x69:
-	LDI  R30,LOW(135)
-	CP   R30,R7
-	BRSH _0x6B
-	RCALL SUBOPT_0xB
-	RJMP _0x92
-; 0000 0027         else if(rjoyx < 120)        {data.analog_r=3;} //analog phai sang trai
-_0x6B:
-	LDI  R30,LOW(120)
-	CP   R4,R30
-	BRSH _0x6D
-	RCALL SUBOPT_0xC
-	RJMP _0x92
-; 0000 0028         else if(rjoyx > 135)        {data.analog_r=4;} //analog phai sang phai
-_0x6D:
-	LDI  R30,LOW(135)
-	CP   R30,R4
-	BRSH _0x6F
-	RCALL SUBOPT_0xD
-	RJMP _0x92
-; 0000 0029         else                        {data.analog_r=0;} //gia tri o giua
-_0x6F:
-	RCALL SUBOPT_0xE
-_0x92:
-	__PUTW1MN _data,2
-; 0000 002A         if((byte4&Up) == 0)         {data.digital_l=1;}
-	SBRC R8,4
-	RJMP _0x71
-	RCALL SUBOPT_0x9
-	RJMP _0x93
-; 0000 002B         else if((byte4&Left) == 0)  {data.digital_l=3;}
-_0x71:
-	SBRC R8,7
-	RJMP _0x73
-	RCALL SUBOPT_0xC
-	RJMP _0x93
-; 0000 002C         else if((byte4&Down) == 0)  {data.digital_l=2;}
-_0x73:
-	SBRC R8,6
-	RJMP _0x75
-	RCALL SUBOPT_0xB
-	RJMP _0x93
-; 0000 002D         else if((byte4&Right) == 0) {data.digital_l=4;}
-_0x75:
-	SBRC R8,5
-	RJMP _0x77
-	RCALL SUBOPT_0xD
-	RJMP _0x93
-; 0000 002E         else                        {data.digital_l=0;}
-_0x77:
-	RCALL SUBOPT_0xE
-_0x93:
+	LDI  R31,HIGH(0)
+_0x82:
 	__PUTW1MN _data,4
-; 0000 002F         if((byte5&Tamgiac) == 0)    {data.digital_r=1;}
+; 0000 0033         if((byte5&Tamgiac) == 0)    {data.digital_r=1;}
 	SBRC R11,4
-	RJMP _0x79
-	RCALL SUBOPT_0x9
-	RJMP _0x94
-; 0000 0030         else if((byte5&Tron) == 0)  {data.digital_r=4;}
-_0x79:
-	SBRC R11,5
-	RJMP _0x7B
-	RCALL SUBOPT_0xD
-	RJMP _0x94
-; 0000 0031         else if((byte5&Nhan) == 0)  {data.digital_r=2;}
-_0x7B:
-	SBRC R11,6
-	RJMP _0x7D
-	RCALL SUBOPT_0xB
-	RJMP _0x94
-; 0000 0032         else if((byte5&Vuong) == 0) {data.digital_r=3;}
-_0x7D:
-	SBRC R11,7
-	RJMP _0x7F
-	RCALL SUBOPT_0xC
-	RJMP _0x94
-; 0000 0033         else                        {data.digital_r=0;}
-_0x7F:
-	RCALL SUBOPT_0xE
-_0x94:
-	__PUTW1MN _data,6
-; 0000 0034       /***************************************************/
-; 0000 0035         if((byte5&L1) == 0)         {data.digital=1;}
-	SBRC R11,2
-	RJMP _0x81
-	RCALL SUBOPT_0x9
-	RJMP _0x95
-; 0000 0036         else if((byte5&R1) == 0)    {data.digital=2;}
-_0x81:
-	SBRC R11,3
+	RJMP _0x69
+	LDI  R30,LOW(1)
+	LDI  R31,HIGH(1)
 	RJMP _0x83
-	RCALL SUBOPT_0xB
-	RJMP _0x95
-; 0000 0037         else if((byte5&L2) == 0)    {data.digital=3;}
+; 0000 0034         else if((byte5&Tron) == 0)  {data.digital_r=4;}
+_0x69:
+	SBRC R11,5
+	RJMP _0x6B
+	LDI  R30,LOW(4)
+	LDI  R31,HIGH(4)
+	RJMP _0x83
+; 0000 0035         else if((byte5&Nhan) == 0)  {data.digital_r=2;}
+_0x6B:
+	SBRC R11,6
+	RJMP _0x6D
+	LDI  R30,LOW(2)
+	LDI  R31,HIGH(2)
+	RJMP _0x83
+; 0000 0036         else if((byte5&Vuong) == 0) {data.digital_r=3;}
+_0x6D:
+	SBRC R11,7
+	RJMP _0x6F
+	LDI  R30,LOW(3)
+	LDI  R31,HIGH(3)
+	RJMP _0x83
+; 0000 0037         else                        {data.digital_r=0;}
+_0x6F:
+	LDI  R30,LOW(0)
+	LDI  R31,HIGH(0)
 _0x83:
+	__PUTW1MN _data,6
+; 0000 0038       /***************************************************/
+; 0000 0039         if((byte5&L1) == 0)         {data.digital=1;}
+	SBRC R11,2
+	RJMP _0x71
+	LDI  R30,LOW(1)
+	LDI  R31,HIGH(1)
+	RJMP _0x84
+; 0000 003A         else if((byte5&R1) == 0)    {data.digital=2;}
+_0x71:
+	SBRC R11,3
+	RJMP _0x73
+	LDI  R30,LOW(2)
+	LDI  R31,HIGH(2)
+	RJMP _0x84
+; 0000 003B         else if((byte5&L2) == 0)    {data.digital=3;}
+_0x73:
 	SBRC R11,0
-	RJMP _0x85
-	RCALL SUBOPT_0xC
-	RJMP _0x95
-; 0000 0038         else if((byte5&R2) == 0)    {data.digital=4;}
-_0x85:
+	RJMP _0x75
+	LDI  R30,LOW(3)
+	LDI  R31,HIGH(3)
+	RJMP _0x84
+; 0000 003C         else if((byte5&R2) == 0)    {data.digital=4;}
+_0x75:
 	SBRC R11,1
-	RJMP _0x87
-	RCALL SUBOPT_0xD
-	RJMP _0x95
-; 0000 0039         else if((byte4&Select) == 0){data.digital=5;}
-_0x87:
+	RJMP _0x77
+	LDI  R30,LOW(4)
+	LDI  R31,HIGH(4)
+	RJMP _0x84
+; 0000 003D         else if((byte4&Select) == 0){data.digital=5;}
+_0x77:
 	SBRC R8,0
-	RJMP _0x89
+	RJMP _0x79
 	LDI  R30,LOW(5)
 	LDI  R31,HIGH(5)
-	RJMP _0x95
-; 0000 003A         else if((byte4&L3) == 0)    {data.digital=6;}
-_0x89:
+	RJMP _0x84
+; 0000 003E         else if((byte4&L3) == 0)    {data.digital=6;}
+_0x79:
 	SBRC R8,1
-	RJMP _0x8B
+	RJMP _0x7B
 	LDI  R30,LOW(6)
 	LDI  R31,HIGH(6)
-	RJMP _0x95
-; 0000 003B         else if((byte4&R3) == 0)    {data.digital=7;}
-_0x8B:
+	RJMP _0x84
+; 0000 003F         else if((byte4&R3) == 0)    {data.digital=7;}
+_0x7B:
 	SBRC R8,2
-	RJMP _0x8D
+	RJMP _0x7D
 	LDI  R30,LOW(7)
 	LDI  R31,HIGH(7)
-	RJMP _0x95
-; 0000 003C         else if((byte4&Start) == 0) {data.digital=8;}
-_0x8D:
+	RJMP _0x84
+; 0000 0040         else if((byte4&Start) == 0) {data.digital=8;}
+_0x7D:
 	SBRC R8,3
-	RJMP _0x8F
+	RJMP _0x7F
 	LDI  R30,LOW(8)
 	LDI  R31,HIGH(8)
-	RJMP _0x95
-; 0000 003D         else                        {data.digital=0;}
-_0x8F:
-	RCALL SUBOPT_0xE
-_0x95:
+	RJMP _0x84
+; 0000 0041         else                        {data.digital=0;}
+_0x7F:
+	LDI  R30,LOW(0)
+	LDI  R31,HIGH(0)
+_0x84:
 	__PUTW1MN _data,8
-; 0000 003E       /**************************************************/
-; 0000 003F        RF_TX_send(P_Add,data);   // ham gui ma lenh den dia chi P_Add
+; 0000 0042       /**************************************************/
+; 0000 0043        RF_TX_send(P_Add,data);   // ham gui ma lenh den dia chi P_Add
 	ST   -Y,R5
 	LDI  R30,LOW(_data)
 	LDI  R31,HIGH(_data)
 	LDI  R26,10
 	RCALL __PUTPARL
 	RCALL _RF_TX_send
-; 0000 0040        delay_ms(1);
+; 0000 0044        delay_ms(1);
 	LDI  R26,LOW(1)
 	RCALL SUBOPT_0x4
-; 0000 0041       }
+; 0000 0045       }
 	RJMP _0x5E
-; 0000 0042 }
-_0x91:
-	RJMP _0x91
+; 0000 0046 }
+_0x81:
+	RJMP _0x81
 ; .FEND
 	#ifndef __SLEEP_DEFINED__
 	#define __SLEEP_DEFINED__
@@ -2279,42 +2224,6 @@ SUBOPT_0x8:
 	ST   -Y,R30
 	LDI  R26,LOW(1)
 	RJMP _RF_Write
-
-;OPTIMIZER ADDED SUBROUTINE, CALLED 5 TIMES, CODE SIZE REDUCTION:2 WORDS
-SUBOPT_0x9:
-	LDI  R30,LOW(1)
-	LDI  R31,HIGH(1)
-	RET
-
-;OPTIMIZER ADDED SUBROUTINE, CALLED 4 TIMES, CODE SIZE REDUCTION:7 WORDS
-SUBOPT_0xA:
-	STS  _data,R30
-	STS  _data+1,R31
-	RET
-
-;OPTIMIZER ADDED SUBROUTINE, CALLED 5 TIMES, CODE SIZE REDUCTION:2 WORDS
-SUBOPT_0xB:
-	LDI  R30,LOW(2)
-	LDI  R31,HIGH(2)
-	RET
-
-;OPTIMIZER ADDED SUBROUTINE, CALLED 5 TIMES, CODE SIZE REDUCTION:2 WORDS
-SUBOPT_0xC:
-	LDI  R30,LOW(3)
-	LDI  R31,HIGH(3)
-	RET
-
-;OPTIMIZER ADDED SUBROUTINE, CALLED 5 TIMES, CODE SIZE REDUCTION:2 WORDS
-SUBOPT_0xD:
-	LDI  R30,LOW(4)
-	LDI  R31,HIGH(4)
-	RET
-
-;OPTIMIZER ADDED SUBROUTINE, CALLED 4 TIMES, CODE SIZE REDUCTION:1 WORDS
-SUBOPT_0xE:
-	LDI  R30,LOW(0)
-	LDI  R31,HIGH(0)
-	RET
 
 
 	.CSEG

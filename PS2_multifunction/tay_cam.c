@@ -1,4 +1,4 @@
-char P_Add = 0x89;         // dia chi cua tay cam ( cam giong voi dia chi cua robot)
+char P_Add = 0xB5;         // dia chi cua tay cam ( cam giong voi dia chi cua robot)
 #include <mega8.h>
 #include <delay.h>
 #include <stdio.h>
@@ -29,7 +29,8 @@ void main(void)
 	while (1)
 		{  
 		TX_Mode_Active();
-		if(ljoyy < 80)             {data.analog_l=1;} //analog trai tien
+		/*
+        if(ljoyy < 80)             {data.analog_l=1;} //analog trai tien
         else if(ljoyy > 170)        {data.analog_l=2;} //analog trai lui
         else if(ljoyx < 80)        {data.analog_l=3;} //analog trai sang trai
         else if(ljoyx > 170)        {data.analog_l=4;} //analog trai sang phai
@@ -38,7 +39,10 @@ void main(void)
         else if(rjoyy > 170)        {data.analog_r=2;} //analog phai lui
         else if(rjoyx < 80)        {data.analog_r=3;} //analog phai sang trai
         else if(rjoyx > 170)        {data.analog_r=4;} //analog phai sang phai
-        else                        {data.analog_r=0;} //gia tri o giua
+        else                        {data.analog_r=0;} //gia tri o giua 
+        */
+        data.analog_l = ljoyy;
+        data.analog_r = rjoyx; 
         if((byte4&Up) == 0)         {data.digital_l=1;}
         else if((byte4&Left) == 0)  {data.digital_l=3;}
         else if((byte4&Down) == 0)  {data.digital_l=2;}

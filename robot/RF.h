@@ -1,9 +1,9 @@
-#define CE PORTD.2     //out 1
-#define CSN PORTD.7      //out 1
+#define CE PORTD.4      //out 1
+#define CSN PORTD.5      //out 1
 #define SCK PORTD.3       //out 1
 #define MOSI PORTD.6      //out 1
-#define MISO PIND.4       //in p
-#define IRQ PIND.5        //in p
+#define MISO PIND.2       //in p
+#define IRQ PIND.7        //in p
 
 typedef struct
 {
@@ -16,6 +16,9 @@ typedef struct
 data receive;
 
 //--------------*---------------
+unsigned char Code_tay_cam2;
+unsigned char Code_tay_cam3;
+unsigned char Code_tay_cam4;
 unsigned char SPI_RW(unsigned char Buff);                                       //Function used for text moving
 unsigned char SPI_Read(void);
 void RF_Init();                                                                 //Function allow to Initialize RF device

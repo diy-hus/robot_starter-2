@@ -1,15 +1,15 @@
 
-AVRASM ver. 2.1.30  C:\Users\12\Desktop\robot_starter-2\robot_starter\Debug\List\tay_cam.asm Sun Jul 30 21:24:25 2017
+AVRASM ver. 2.1.30  C:\Users\108\Desktop\robot_starter-2\PS2_multifunction\Debug\List\tay_cam.asm Fri Sep 06 11:21:13 2019
 
-C:\Users\12\Desktop\robot_starter-2\robot_starter\Debug\List\tay_cam.asm(1086): warning: Register r5 already defined by the .DEF directive
-C:\Users\12\Desktop\robot_starter-2\robot_starter\Debug\List\tay_cam.asm(1087): warning: Register r4 already defined by the .DEF directive
-C:\Users\12\Desktop\robot_starter-2\robot_starter\Debug\List\tay_cam.asm(1088): warning: Register r7 already defined by the .DEF directive
-C:\Users\12\Desktop\robot_starter-2\robot_starter\Debug\List\tay_cam.asm(1089): warning: Register r6 already defined by the .DEF directive
-C:\Users\12\Desktop\robot_starter-2\robot_starter\Debug\List\tay_cam.asm(1090): warning: Register r9 already defined by the .DEF directive
-C:\Users\12\Desktop\robot_starter-2\robot_starter\Debug\List\tay_cam.asm(1091): warning: Register r8 already defined by the .DEF directive
-C:\Users\12\Desktop\robot_starter-2\robot_starter\Debug\List\tay_cam.asm(1092): warning: Register r11 already defined by the .DEF directive
-C:\Users\12\Desktop\robot_starter-2\robot_starter\Debug\List\tay_cam.asm(1093): warning: Register r10 already defined by the .DEF directive
-C:\Users\12\Desktop\robot_starter-2\robot_starter\Debug\List\tay_cam.asm(1094): warning: Register r13 already defined by the .DEF directive
+C:\Users\108\Desktop\robot_starter-2\PS2_multifunction\Debug\List\tay_cam.asm(1086): warning: Register r5 already defined by the .DEF directive
+C:\Users\108\Desktop\robot_starter-2\PS2_multifunction\Debug\List\tay_cam.asm(1087): warning: Register r4 already defined by the .DEF directive
+C:\Users\108\Desktop\robot_starter-2\PS2_multifunction\Debug\List\tay_cam.asm(1088): warning: Register r7 already defined by the .DEF directive
+C:\Users\108\Desktop\robot_starter-2\PS2_multifunction\Debug\List\tay_cam.asm(1089): warning: Register r6 already defined by the .DEF directive
+C:\Users\108\Desktop\robot_starter-2\PS2_multifunction\Debug\List\tay_cam.asm(1090): warning: Register r9 already defined by the .DEF directive
+C:\Users\108\Desktop\robot_starter-2\PS2_multifunction\Debug\List\tay_cam.asm(1091): warning: Register r8 already defined by the .DEF directive
+C:\Users\108\Desktop\robot_starter-2\PS2_multifunction\Debug\List\tay_cam.asm(1092): warning: Register r11 already defined by the .DEF directive
+C:\Users\108\Desktop\robot_starter-2\PS2_multifunction\Debug\List\tay_cam.asm(1093): warning: Register r10 already defined by the .DEF directive
+C:\Users\108\Desktop\robot_starter-2\PS2_multifunction\Debug\List\tay_cam.asm(1094): warning: Register r13 already defined by the .DEF directive
                  
                  
                  ;CodeVisionAVR C Compiler V3.12 Advanced
@@ -1147,11 +1147,11 @@ C:\Users\12\Desktop\robot_starter-2\robot_starter\Debug\List\tay_cam.asm(1094): 
                  
                  ;GLOBAL REGISTER VARIABLES INITIALIZATION
                  __REG_VARS:
-00001c 0089
-00001d 0000      	.DB  0x89,0x0,0x0,0x0
+00001c 00b5
+00001d 0000      	.DB  0xB5,0x0,0x0,0x0
 00001e 0000
 00001f 0000      	.DB  0x0,0x0,0x0,0x0
-C:\Users\12\Desktop\robot_starter-2\robot_starter\Debug\List\tay_cam.asm(1133): warning: .cseg .db misalignment - padding zero byte
+C:\Users\108\Desktop\robot_starter-2\PS2_multifunction\Debug\List\tay_cam.asm(1133): warning: .cseg .db misalignment - padding zero byte
 000020 0000      	.DB  0x0
                  
                  
@@ -1237,7 +1237,7 @@ C:\Users\12\Desktop\robot_starter-2\robot_starter\Debug\List\tay_cam.asm(1133): 
                  	.ORG 0x160
                  
                  	.CSEG
-                 ;char P_Add = 0x89;         // dia chi cua tay cam ( cam giong voi dia chi cua robot)
+                 ;char P_Add = 0xB5;         // dia chi cua tay cam ( cam giong voi dia chi cua robot)
                  ;#include <mega8.h>
                  	#ifndef __SLEEP_DEFINED__
                  	#define __SLEEP_DEFINED__
@@ -1303,7 +1303,7 @@ C:\Users\12\Desktop\robot_starter-2\robot_starter\Debug\List\tay_cam.asm(1133): 
                  ;	unsigned char i;
                  ;	CMD = 1;
 000051 93aa      	ST   -Y,R26
-000052 d232      	RCALL __SAVELOCR2
+000052 d203      	RCALL __SAVELOCR2
                  ;	tbyte -> Y+2
                  ;	rbyte -> R17
                  ;	i -> R16
@@ -1375,7 +1375,7 @@ C:\Users\12\Desktop\robot_starter-2\robot_starter\Debug\List\tay_cam.asm(1133): 
                  	__DELAY_USW 200
                  ;	return rbyte;
 00007c 2fe1      	MOV  R30,R17
-00007d d20a      	RCALL __LOADLOCR2
+00007d d1db      	RCALL __LOADLOCR2
 00007e 9623      	ADIW R28,3
 00007f 9508      	RET
                  ;}
@@ -1387,30 +1387,30 @@ C:\Users\12\Desktop\robot_starter-2\robot_starter\Debug\List\tay_cam.asm(1133): 
                  _read_data:
                  ; .FSTART _read_data
                  ;ATT=0;               // Enable Joytick
-000080 d1c2      	RCALL SUBOPT_0x0
+000080 d1a7      	RCALL SUBOPT_0x0
                  ;access(0x01);       // >> dua ma 0x01 vao Joytick
                  ;access(0x42);      // >> dua ma 0x42 vao Joytick
 000081 e4a2      	LDI  R26,LOW(66)
-000082 d1c3      	RCALL SUBOPT_0x1
+000082 d1a8      	RCALL SUBOPT_0x1
                  ;access(0);
-000083 d1c2      	RCALL SUBOPT_0x1
+000083 d1a7      	RCALL SUBOPT_0x1
                  ;byte4   =   access(0);
 000084 dfcc      	RCALL _access
 000085 2e8e      	MOV  R8,R30
                  ;byte5   =   access(0);
-000086 d1c2      	RCALL SUBOPT_0x2
+000086 d1a7      	RCALL SUBOPT_0x2
 000087 2ebe      	MOV  R11,R30
                  ;rjoyx   =   access(0);
-000088 d1c0      	RCALL SUBOPT_0x2
+000088 d1a5      	RCALL SUBOPT_0x2
 000089 2e4e      	MOV  R4,R30
                  ;rjoyy   =   access(0);
-00008a d1be      	RCALL SUBOPT_0x2
+00008a d1a3      	RCALL SUBOPT_0x2
 00008b 2e7e      	MOV  R7,R30
                  ;ljoyx   =   access(0);
-00008c d1bc      	RCALL SUBOPT_0x2
+00008c d1a1      	RCALL SUBOPT_0x2
 00008d 2e6e      	MOV  R6,R30
                  ;ljoyy   =   access(0);
-00008e d1ba      	RCALL SUBOPT_0x2
+00008e d19f      	RCALL SUBOPT_0x2
 00008f 2e9e      	MOV  R9,R30
                  ;CMD=0;
 000090 9892      	CBI  0x12,2
@@ -1483,11 +1483,11 @@ C:\Users\12\Desktop\robot_starter-2\robot_starter\Debug\List\tay_cam.asm(1133): 
                  _enter_config:
                  ; .FSTART _enter_config
                  ;ATT=0;               // Enable Joytick
-0000bd d185      	RCALL SUBOPT_0x0
+0000bd d16a      	RCALL SUBOPT_0x0
                  ;access(0x01);       // >> dua ma 0x01 vao Joytick
                  ;access(0x43);      // >> dua ma 0x42 vao Joytick
 0000be e4a3      	LDI  R26,LOW(67)
-0000bf d186      	RCALL SUBOPT_0x1
+0000bf d16b      	RCALL SUBOPT_0x1
                  ;access(0x00);
 0000c0 df90      	RCALL _access
                  ;access(0x01);
@@ -1505,23 +1505,23 @@ C:\Users\12\Desktop\robot_starter-2\robot_starter\Debug\List\tay_cam.asm(1133): 
                  _exit_config:
                  ; .FSTART _exit_config
                  ;ATT=0;               // Enable Joytick
-0000c3 d17f      	RCALL SUBOPT_0x0
+0000c3 d164      	RCALL SUBOPT_0x0
                  ;access(0x01);       // >> dua ma 0x01 vao Joytick
                  ;access(0x43);      // >> dua ma 0x42 vao Joytick
 0000c4 e4a3      	LDI  R26,LOW(67)
-0000c5 d180      	RCALL SUBOPT_0x1
+0000c5 d165      	RCALL SUBOPT_0x1
                  ;access(0x00);
-0000c6 d17f      	RCALL SUBOPT_0x1
+0000c6 d164      	RCALL SUBOPT_0x1
                  ;access(0x00);
-0000c7 d183      	RCALL SUBOPT_0x3
+0000c7 d168      	RCALL SUBOPT_0x3
                  ;access(0x5A);
-0000c8 d182      	RCALL SUBOPT_0x3
+0000c8 d167      	RCALL SUBOPT_0x3
                  ;access(0x5A);
-0000c9 d181      	RCALL SUBOPT_0x3
+0000c9 d166      	RCALL SUBOPT_0x3
                  ;access(0x5A);
-0000ca d180      	RCALL SUBOPT_0x3
+0000ca d165      	RCALL SUBOPT_0x3
                  ;access(0x5A);
-0000cb d17f      	RCALL SUBOPT_0x3
+0000cb d164      	RCALL SUBOPT_0x3
                  ;access(0x5A);
 0000cc c00c      	RJMP _0x2060004
                  ;CMD=0;
@@ -1535,11 +1535,11 @@ C:\Users\12\Desktop\robot_starter-2\robot_starter\Debug\List\tay_cam.asm(1133): 
                  _change_analog:
                  ; .FSTART _change_analog
                  ;ATT=0;
-0000cd d175      	RCALL SUBOPT_0x0
+0000cd d15a      	RCALL SUBOPT_0x0
                  ;access(0x01);
                  ;access(0x44);
 0000ce e4a4      	LDI  R26,LOW(68)
-0000cf d176      	RCALL SUBOPT_0x1
+0000cf d15b      	RCALL SUBOPT_0x1
                  ;access(0x00);
 0000d0 df80      	RCALL _access
                  ;access(0x01);
@@ -1547,11 +1547,11 @@ C:\Users\12\Desktop\robot_starter-2\robot_starter\Debug\List\tay_cam.asm(1133): 
 0000d2 df7e      	RCALL _access
                  ;access(0x03);
 0000d3 e0a3      	LDI  R26,LOW(3)
-0000d4 d171      	RCALL SUBOPT_0x1
+0000d4 d156      	RCALL SUBOPT_0x1
                  ;access(0x00);
-0000d5 d170      	RCALL SUBOPT_0x1
+0000d5 d155      	RCALL SUBOPT_0x1
                  ;access(0x00);
-0000d6 d16f      	RCALL SUBOPT_0x1
+0000d6 d154      	RCALL SUBOPT_0x1
                  ;access(0x00);
                  _0x2060005:
 0000d7 df79      	RCALL _access
@@ -1563,12 +1563,12 @@ C:\Users\12\Desktop\robot_starter-2\robot_starter\Debug\List\tay_cam.asm(1133): 
 0000da 9892      	CBI  0x12,2
                  ;delay_ms(1);
 0000db e0a1      	LDI  R26,LOW(1)
-0000dc d171      	RCALL SUBOPT_0x4
+0000dc d156      	RCALL SUBOPT_0x4
                  ;ATT=1;
 0000dd 9a91      	SBI  0x12,1
                  ;delay_ms(10);
 0000de e0aa      	LDI  R26,LOW(10)
-0000df d16e      	RCALL SUBOPT_0x4
+0000df d153      	RCALL SUBOPT_0x4
                  ;}
 0000e0 9508      	RET
                  ; .FEND
@@ -1582,14 +1582,14 @@ C:\Users\12\Desktop\robot_starter-2\robot_starter\Debug\List\tay_cam.asm(1133): 
                  ;        int digital;
                  ;    }data_send;
                  ;
-                 ;unsigned char SPI_RW(unsigned char Buff);                                       //Function used for text moving
-                 ;void RF_Init();                                                                 //Function allow to Initialize RF device
-                 ;void RF_Write(unsigned char Reg_Add, unsigned char Value);                      //Function to write a value to a registe ...
-                 ;void RF_Write_Address(unsigned char Address);                                   //Function to write TX and RX address
-                 ;void RX_Mode_Active();                                                          //Function to put nRF in RX mode
-                 ;void TX_Mode_Active();                                                          //Function to put nRF in TX mode
-                 ;void RF_Config();                                                               //Function to config the nRF
-                 ;void RF_TX_send(unsigned char RX_Address, data_send send);                 //Function to send data Value to a specify RX ...
+                 ;unsigned char SPI_RW(unsigned char Buff);
+                 ;void RF_Init();
+                 ;void RF_Write(unsigned char Reg_Add, unsigned char Value);
+                 ;void RF_Write_Address(unsigned char Address);
+                 ;void RX_Mode_Active();
+                 ;void TX_Mode_Active();
+                 ;void RF_Config();
+                 ;void RF_TX_send(unsigned char RX_Address, data_send send);
                  ;
                  ;
                  ;unsigned char SPI_RW(unsigned char Buff)
@@ -1690,10 +1690,10 @@ C:\Users\12\Desktop\robot_starter-2\robot_starter\Debug\List\tay_cam.asm(1133): 
 00010c 81e9      	LDD  R30,Y+1
 00010d 62e0      	ORI  R30,0x20
 00010e 2fae      	MOV  R26,R30
-00010f d140      	RCALL SUBOPT_0x5
+00010f d125      	RCALL SUBOPT_0x5
                  ;    SPI_RW(Value);
                  ;    CSN=1;
-000110 d142      	RCALL SUBOPT_0x6
+000110 d127      	RCALL SUBOPT_0x6
                  ;    delay_us(10);
                  ;}
                  _0x2060003:
@@ -1714,34 +1714,34 @@ C:\Users\12\Desktop\robot_starter-2\robot_starter\Debug\List\tay_cam.asm(1133): 
 000117 e0a3      	LDI  R26,LOW(3)
 000118 dff1      	RCALL _RF_Write
                  ;    CSN=1;
-000119 d139      	RCALL SUBOPT_0x6
+000119 d11e      	RCALL SUBOPT_0x6
                  ;    delay_us(10);
                  ;    CSN=0;
 00011a 98a9      	CBI  0x15,1
                  ;    SPI_RW(0b00100000|0x0A);
 00011b e2aa      	LDI  R26,LOW(42)
-00011c d133      	RCALL SUBOPT_0x5
+00011c d118      	RCALL SUBOPT_0x5
                  ;    SPI_RW(Address);
                  ;    SPI_RW(Address);
 00011d 81a8      	LD   R26,Y
-00011e d131      	RCALL SUBOPT_0x5
+00011e d116      	RCALL SUBOPT_0x5
                  ;    SPI_RW(Address);
                  ;    SPI_RW(Address);
 00011f 81a8      	LD   R26,Y
-000120 d12f      	RCALL SUBOPT_0x5
+000120 d114      	RCALL SUBOPT_0x5
                  ;    SPI_RW(Address);
                  ;    CSN=1;
-000121 d131      	RCALL SUBOPT_0x6
+000121 d116      	RCALL SUBOPT_0x6
                  ;    delay_us(10);
                  ;    CSN=0;
 000122 98a9      	CBI  0x15,1
                  ;    SPI_RW(0b00100000|0x10);
 000123 e3a0      	LDI  R26,LOW(48)
-000124 d12b      	RCALL SUBOPT_0x5
+000124 d110      	RCALL SUBOPT_0x5
                  ;    SPI_RW(Address);
                  ;    SPI_RW(Address);
 000125 81a8      	LD   R26,Y
-000126 d129      	RCALL SUBOPT_0x5
+000126 d10e      	RCALL SUBOPT_0x5
                  ;    SPI_RW(Address);
                  ;    SPI_RW(Address);
 000127 81a8      	LD   R26,Y
@@ -1753,7 +1753,6 @@ C:\Users\12\Desktop\robot_starter-2\robot_starter\Debug\List\tay_cam.asm(1133): 
                  ;    delay_us(10);
                  ;}
                  ; .FEND
-                 ;
                  ;
                  ;void RX_Mode_Active()                                             //Function to put nRF in RX mode
                  ;{
@@ -1801,9 +1800,9 @@ C:\Users\12\Desktop\robot_starter-2\robot_starter\Debug\List\tay_cam.asm(1133): 
 00013b dfce      	RCALL _RF_Write
                  ;delay_ms(2);
 00013c e0a2      	LDI  R26,LOW(2)
-00013d d110      	RCALL SUBOPT_0x4
+00013d d0f5      	RCALL SUBOPT_0x4
                  ;RF_Write(0x07,0b01111110);
-00013e d119      	RCALL SUBOPT_0x7
+00013e d0fe      	RCALL SUBOPT_0x7
                  ;//RF_Write(0x11,0b00100000);     //RX_PW_P0 0x11     Payload size
                  ;RF_Write(0x1D, 0b00000100);
 00013f e1ed      	LDI  R30,LOW(29)
@@ -1812,7 +1811,7 @@ C:\Users\12\Desktop\robot_starter-2\robot_starter\Debug\List\tay_cam.asm(1133): 
 000142 dfc7      	RCALL _RF_Write
                  ;RF_Write(0x1C,0b00000001);
 000143 e1ec      	LDI  R30,LOW(28)
-000144 d117      	RCALL SUBOPT_0x8
+000144 d0fc      	RCALL SUBOPT_0x8
                  ;RF_Write(0x05,0b00000010);     //RF_CH 0x05        Choose frequency channel
 000145 e0e5      	LDI  R30,LOW(5)
 000146 93ea      	ST   -Y,R30
@@ -1823,10 +1822,10 @@ C:\Users\12\Desktop\robot_starter-2\robot_starter\Debug\List\tay_cam.asm(1133): 
 00014a dfc8      	RCALL _RF_Write_Address
                  ;RF_Write(0x02,0b00000001);     //EX_RXADDR 0x02    enable data pipe 0;
 00014b e0e2      	LDI  R30,LOW(2)
-00014c d10f      	RCALL SUBOPT_0x8
+00014c d0f4      	RCALL SUBOPT_0x8
                  ;RF_Write(0x01,0b00000001);     //EN_AA 0x01        enable auto-acknowledgment
 00014d e0e1      	LDI  R30,LOW(1)
-00014e d10d      	RCALL SUBOPT_0x8
+00014e d0f2      	RCALL SUBOPT_0x8
                  ;RF_Write(0x04,0b00000000);     //SETUP_RETR 0x04   Setup retry time
 00014f e0e4      	LDI  R30,LOW(4)
 000150 93ea      	ST   -Y,R30
@@ -1850,7 +1849,7 @@ C:\Users\12\Desktop\robot_starter-2\robot_starter\Debug\List\tay_cam.asm(1133): 
 000156 81a8      	LD   R26,Y
 000157 df89      	RCALL _SPI_RW
                  ;    CSN=1;
-000158 d0fa      	RCALL SUBOPT_0x6
+000158 d0df      	RCALL SUBOPT_0x6
                  ;    delay_us(10);
                  ;}
 000159 9621      	ADIW R28,1
@@ -1868,7 +1867,7 @@ C:\Users\12\Desktop\robot_starter-2\robot_starter\Debug\List\tay_cam.asm(1133): 
 00015b 85aa      	LDD  R26,Y+10
 00015c dfb6      	RCALL _RF_Write_Address
                  ;  CSN=1;
-00015d d0f5      	RCALL SUBOPT_0x6
+00015d d0da      	RCALL SUBOPT_0x6
                  ;  delay_us(10);
                  ;  CSN=0;
 00015e 98a9      	CBI  0x15,1
@@ -1876,13 +1875,13 @@ C:\Users\12\Desktop\robot_starter-2\robot_starter\Debug\List\tay_cam.asm(1133): 
 00015f eea1      	LDI  R26,LOW(225)
 000160 df80      	RCALL _SPI_RW
                  ;  CSN=1;
-000161 d0f1      	RCALL SUBOPT_0x6
+000161 d0d6      	RCALL SUBOPT_0x6
                  ;  delay_us(10);
                  ;  CSN=0;
 000162 98a9      	CBI  0x15,1
                  ;  SPI_RW(0b10100000);
 000163 eaa0      	LDI  R26,LOW(160)
-000164 d0eb      	RCALL SUBOPT_0x5
+000164 d0d0      	RCALL SUBOPT_0x5
                  ;  SPI_RW(send.analog_l);
                  ;  SPI_RW(send.analog_r);
 000165 81aa      	LDD  R26,Y+2
@@ -1895,26 +1894,6 @@ C:\Users\12\Desktop\robot_starter-2\robot_starter\Debug\List\tay_cam.asm(1133): 
 00016a df76      	RCALL _SPI_RW
                  ;  CSN=1;
 00016b 9aa9      	SBI  0x15,1
-                 ;/*  delay_us(10);
-                 ;  CSN=0;
-                 ;  SPI_RW(0b10100000);
-                 ;  SPI_RW(send.a);
-                 ;  CSN=1;
-                 ;  delay_us(10);
-                 ;  CSN=0;
-                 ;  SPI_RW(0b10100000);
-                 ;  SPI_RW(send.b);
-                 ;  CSN=1;
-                 ;  delay_us(10);
-                 ;  CSN=0;
-                 ;  SPI_RW(0b10100000);
-                 ;  SPI_RW(send.c);
-                 ;  CSN=1;
-                 ;  delay_us(10);
-                 ;  CSN=0;
-                 ;  SPI_RW(0b10100000);
-                 ;  SPI_RW(send.d);
-                 ;  CSN=1;*/
                  ;  CE=1;
 00016c 9aa8      	SBI  0x15,0
                  ;  delay_us(500);
@@ -1928,7 +1907,7 @@ C:\Users\12\Desktop\robot_starter-2\robot_starter\Debug\List\tay_cam.asm(1133): 
                  ;  CE=0;
 000171 98a8      	CBI  0x15,0
                  ;  RF_Write(0x07,0b01111110);
-000172 d0e5      	RCALL SUBOPT_0x7
+000172 d0ca      	RCALL SUBOPT_0x7
                  ;  RF_Write_Address(P_Add);
 000173 2da5      	MOV  R26,R5
 000174 df9e      	RCALL _RF_Write_Address
@@ -2067,219 +2046,185 @@ C:\Users\12\Desktop\robot_starter-2\robot_starter\Debug\List\tay_cam.asm(1133): 
                  ; 0000 001E 		{
                  ; 0000 001F 		TX_Mode_Active();
 0001af df80      	RCALL _TX_Mode_Active
-                 ; 0000 0020 		if(ljoyy < 120)             {data.analog_l=1;} //analog trai tien
-0001b0 e7e8      	LDI  R30,LOW(120)
-0001b1 169e      	CP   R9,R30
-0001b2 f418      	BRSH _0x61
-0001b3 d0ab      	RCALL SUBOPT_0x9
-0001b4 d0ad      	RCALL SUBOPT_0xA
-                 ; 0000 0021         else if(ljoyy > 135)        {data.analog_l=2;} //analog trai lui
-0001b5 c017      	RJMP _0x62
+                 ; 0000 0020 		/*
+                 ; 0000 0021         if(ljoyy < 80)             {data.analog_l=1;} //analog trai tien
+                 ; 0000 0022         else if(ljoyy > 170)        {data.analog_l=2;} //analog trai lui
+                 ; 0000 0023         else if(ljoyx < 80)        {data.analog_l=3;} //analog trai sang trai
+                 ; 0000 0024         else if(ljoyx > 170)        {data.analog_l=4;} //analog trai sang phai
+                 ; 0000 0025         else                        {data.analog_l=0;} //gia tri o giua
+                 ; 0000 0026         if(rjoyy < 80)             {data.analog_r=1;} //analog phai tien
+                 ; 0000 0027         else if(rjoyy > 170)        {data.analog_r=2;} //analog phai lui
+                 ; 0000 0028         else if(rjoyx < 80)        {data.analog_r=3;} //analog phai sang trai
+                 ; 0000 0029         else if(rjoyx > 170)        {data.analog_r=4;} //analog phai sang phai
+                 ; 0000 002A         else                        {data.analog_r=0;} //gia tri o giua
+                 ; 0000 002B         */
+                 ; 0000 002C         data.analog_l = ljoyy;
+0001b0 2de9      	MOV  R30,R9
+0001b1 e0f0      	LDI  R31,0
+0001b2 93e0 0160 	STS  _data,R30
+0001b4 93f0 0161 	STS  _data+1,R31
+                 ; 0000 002D         data.analog_r = rjoyx;
+                +
+0001b6 e6a2     +LDI R26 , LOW ( _data + ( 2 ) )
+0001b7 e0b1     +LDI R27 , HIGH ( _data + ( 2 ) )
+                 	__POINTW2MN _data,2
+0001b8 2de4      	MOV  R30,R4
+0001b9 e0f0      	LDI  R31,0
+0001ba 93ed      	ST   X+,R30
+0001bb 93fc      	ST   X,R31
+                 ; 0000 002E         if((byte4&Up) == 0)         {data.digital_l=1;}
+0001bc fc84      	SBRC R8,4
+0001bd c003      	RJMP _0x61
+0001be e0e1      	LDI  R30,LOW(1)
+0001bf e0f0      	LDI  R31,HIGH(1)
+0001c0 c011      	RJMP _0x82
+                 ; 0000 002F         else if((byte4&Left) == 0)  {data.digital_l=3;}
                  _0x61:
-0001b6 e8e7      	LDI  R30,LOW(135)
-0001b7 15e9      	CP   R30,R9
-0001b8 f418      	BRSH _0x63
-0001b9 d0ad      	RCALL SUBOPT_0xB
-0001ba d0a7      	RCALL SUBOPT_0xA
-                 ; 0000 0022         else if(ljoyx < 120)        {data.analog_l=3;} //analog trai sang trai
-0001bb c011      	RJMP _0x64
+0001c1 fc87      	SBRC R8,7
+0001c2 c003      	RJMP _0x63
+0001c3 e0e3      	LDI  R30,LOW(3)
+0001c4 e0f0      	LDI  R31,HIGH(3)
+0001c5 c00c      	RJMP _0x82
+                 ; 0000 0030         else if((byte4&Down) == 0)  {data.digital_l=2;}
                  _0x63:
-0001bc e7e8      	LDI  R30,LOW(120)
-0001bd 166e      	CP   R6,R30
-0001be f418      	BRSH _0x65
-0001bf d0aa      	RCALL SUBOPT_0xC
-0001c0 d0a1      	RCALL SUBOPT_0xA
-                 ; 0000 0023         else if(ljoyx > 135)        {data.analog_l=4;} //analog trai sang phai
-0001c1 c00b      	RJMP _0x66
+0001c6 fc86      	SBRC R8,6
+0001c7 c003      	RJMP _0x65
+0001c8 e0e2      	LDI  R30,LOW(2)
+0001c9 e0f0      	LDI  R31,HIGH(2)
+0001ca c007      	RJMP _0x82
+                 ; 0000 0031         else if((byte4&Right) == 0) {data.digital_l=4;}
                  _0x65:
-0001c2 e8e7      	LDI  R30,LOW(135)
-0001c3 15e6      	CP   R30,R6
-0001c4 f418      	BRSH _0x67
-0001c5 d0a7      	RCALL SUBOPT_0xD
-0001c6 d09b      	RCALL SUBOPT_0xA
-                 ; 0000 0024         else                        {data.analog_l=0;} //gia tri o giua
-0001c7 c005      	RJMP _0x68
+0001cb fc85      	SBRC R8,5
+0001cc c003      	RJMP _0x67
+0001cd e0e4      	LDI  R30,LOW(4)
+0001ce e0f0      	LDI  R31,HIGH(4)
+0001cf c002      	RJMP _0x82
+                 ; 0000 0032         else                        {data.digital_l=0;}
                  _0x67:
-0001c8 e0e0      	LDI  R30,LOW(0)
-0001c9 93e0 0160 	STS  _data,R30
-0001cb 93e0 0161 	STS  _data+1,R30
-                 _0x68:
-                 _0x66:
-                 _0x64:
-                 _0x62:
-                 ; 0000 0025         if(rjoyy < 120)             {data.analog_r=1;} //analog phai tien
-0001cd e7e8      	LDI  R30,LOW(120)
-0001ce 167e      	CP   R7,R30
-0001cf f410      	BRSH _0x69
-0001d0 d08e      	RCALL SUBOPT_0x9
-0001d1 c010      	RJMP _0x92
-                 ; 0000 0026         else if(rjoyy > 135)        {data.analog_r=2;} //analog phai lui
-                 _0x69:
-0001d2 e8e7      	LDI  R30,LOW(135)
-0001d3 15e7      	CP   R30,R7
-0001d4 f410      	BRSH _0x6B
-0001d5 d091      	RCALL SUBOPT_0xB
-0001d6 c00b      	RJMP _0x92
-                 ; 0000 0027         else if(rjoyx < 120)        {data.analog_r=3;} //analog phai sang trai
-                 _0x6B:
-0001d7 e7e8      	LDI  R30,LOW(120)
-0001d8 164e      	CP   R4,R30
-0001d9 f410      	BRSH _0x6D
-0001da d08f      	RCALL SUBOPT_0xC
-0001db c006      	RJMP _0x92
-                 ; 0000 0028         else if(rjoyx > 135)        {data.analog_r=4;} //analog phai sang phai
-                 _0x6D:
-0001dc e8e7      	LDI  R30,LOW(135)
-0001dd 15e4      	CP   R30,R4
-0001de f410      	BRSH _0x6F
-0001df d08d      	RCALL SUBOPT_0xD
-0001e0 c001      	RJMP _0x92
-                 ; 0000 0029         else                        {data.analog_r=0;} //gia tri o giua
-                 _0x6F:
-0001e1 d08e      	RCALL SUBOPT_0xE
-                 _0x92:
+0001d0 e0e0      	LDI  R30,LOW(0)
+0001d1 e0f0      	LDI  R31,HIGH(0)
+                 _0x82:
                 +
-0001e2 93e0 0162+STS _data + ( 2 ) , R30
-0001e4 93f0 0163+STS _data + ( 2 ) + 1 , R31
-                 	__PUTW1MN _data,2
-                 ; 0000 002A         if((byte4&Up) == 0)         {data.digital_l=1;}
-0001e6 fc84      	SBRC R8,4
-0001e7 c002      	RJMP _0x71
-0001e8 d076      	RCALL SUBOPT_0x9
-0001e9 c00d      	RJMP _0x93
-                 ; 0000 002B         else if((byte4&Left) == 0)  {data.digital_l=3;}
-                 _0x71:
-0001ea fc87      	SBRC R8,7
-0001eb c002      	RJMP _0x73
-0001ec d07d      	RCALL SUBOPT_0xC
-0001ed c009      	RJMP _0x93
-                 ; 0000 002C         else if((byte4&Down) == 0)  {data.digital_l=2;}
-                 _0x73:
-0001ee fc86      	SBRC R8,6
-0001ef c002      	RJMP _0x75
-0001f0 d076      	RCALL SUBOPT_0xB
-0001f1 c005      	RJMP _0x93
-                 ; 0000 002D         else if((byte4&Right) == 0) {data.digital_l=4;}
-                 _0x75:
-0001f2 fc85      	SBRC R8,5
-0001f3 c002      	RJMP _0x77
-0001f4 d078      	RCALL SUBOPT_0xD
-0001f5 c001      	RJMP _0x93
-                 ; 0000 002E         else                        {data.digital_l=0;}
-                 _0x77:
-0001f6 d079      	RCALL SUBOPT_0xE
-                 _0x93:
-                +
-0001f7 93e0 0164+STS _data + ( 4 ) , R30
-0001f9 93f0 0165+STS _data + ( 4 ) + 1 , R31
+0001d2 93e0 0164+STS _data + ( 4 ) , R30
+0001d4 93f0 0165+STS _data + ( 4 ) + 1 , R31
                  	__PUTW1MN _data,4
-                 ; 0000 002F         if((byte5&Tamgiac) == 0)    {data.digital_r=1;}
-0001fb fcb4      	SBRC R11,4
-0001fc c002      	RJMP _0x79
-0001fd d061      	RCALL SUBOPT_0x9
-0001fe c00d      	RJMP _0x94
-                 ; 0000 0030         else if((byte5&Tron) == 0)  {data.digital_r=4;}
-                 _0x79:
-0001ff fcb5      	SBRC R11,5
-000200 c002      	RJMP _0x7B
-000201 d06b      	RCALL SUBOPT_0xD
-000202 c009      	RJMP _0x94
-                 ; 0000 0031         else if((byte5&Nhan) == 0)  {data.digital_r=2;}
-                 _0x7B:
-000203 fcb6      	SBRC R11,6
-000204 c002      	RJMP _0x7D
-000205 d061      	RCALL SUBOPT_0xB
-000206 c005      	RJMP _0x94
-                 ; 0000 0032         else if((byte5&Vuong) == 0) {data.digital_r=3;}
-                 _0x7D:
-000207 fcb7      	SBRC R11,7
-000208 c002      	RJMP _0x7F
-000209 d060      	RCALL SUBOPT_0xC
-00020a c001      	RJMP _0x94
-                 ; 0000 0033         else                        {data.digital_r=0;}
-                 _0x7F:
-00020b d064      	RCALL SUBOPT_0xE
-                 _0x94:
-                +
-00020c 93e0 0166+STS _data + ( 6 ) , R30
-00020e 93f0 0167+STS _data + ( 6 ) + 1 , R31
-                 	__PUTW1MN _data,6
-                 ; 0000 0034       /***************************************************/
-                 ; 0000 0035         if((byte5&L1) == 0)         {data.digital=1;}
-000210 fcb2      	SBRC R11,2
-000211 c002      	RJMP _0x81
-000212 d04c      	RCALL SUBOPT_0x9
-000213 c021      	RJMP _0x95
-                 ; 0000 0036         else if((byte5&R1) == 0)    {data.digital=2;}
-                 _0x81:
-000214 fcb3      	SBRC R11,3
-000215 c002      	RJMP _0x83
-000216 d050      	RCALL SUBOPT_0xB
-000217 c01d      	RJMP _0x95
-                 ; 0000 0037         else if((byte5&L2) == 0)    {data.digital=3;}
+                 ; 0000 0033         if((byte5&Tamgiac) == 0)    {data.digital_r=1;}
+0001d6 fcb4      	SBRC R11,4
+0001d7 c003      	RJMP _0x69
+0001d8 e0e1      	LDI  R30,LOW(1)
+0001d9 e0f0      	LDI  R31,HIGH(1)
+0001da c011      	RJMP _0x83
+                 ; 0000 0034         else if((byte5&Tron) == 0)  {data.digital_r=4;}
+                 _0x69:
+0001db fcb5      	SBRC R11,5
+0001dc c003      	RJMP _0x6B
+0001dd e0e4      	LDI  R30,LOW(4)
+0001de e0f0      	LDI  R31,HIGH(4)
+0001df c00c      	RJMP _0x83
+                 ; 0000 0035         else if((byte5&Nhan) == 0)  {data.digital_r=2;}
+                 _0x6B:
+0001e0 fcb6      	SBRC R11,6
+0001e1 c003      	RJMP _0x6D
+0001e2 e0e2      	LDI  R30,LOW(2)
+0001e3 e0f0      	LDI  R31,HIGH(2)
+0001e4 c007      	RJMP _0x83
+                 ; 0000 0036         else if((byte5&Vuong) == 0) {data.digital_r=3;}
+                 _0x6D:
+0001e5 fcb7      	SBRC R11,7
+0001e6 c003      	RJMP _0x6F
+0001e7 e0e3      	LDI  R30,LOW(3)
+0001e8 e0f0      	LDI  R31,HIGH(3)
+0001e9 c002      	RJMP _0x83
+                 ; 0000 0037         else                        {data.digital_r=0;}
+                 _0x6F:
+0001ea e0e0      	LDI  R30,LOW(0)
+0001eb e0f0      	LDI  R31,HIGH(0)
                  _0x83:
-000218 fcb0      	SBRC R11,0
-000219 c002      	RJMP _0x85
-00021a d04f      	RCALL SUBOPT_0xC
-00021b c019      	RJMP _0x95
-                 ; 0000 0038         else if((byte5&R2) == 0)    {data.digital=4;}
-                 _0x85:
-00021c fcb1      	SBRC R11,1
-00021d c002      	RJMP _0x87
-00021e d04e      	RCALL SUBOPT_0xD
-00021f c015      	RJMP _0x95
-                 ; 0000 0039         else if((byte4&Select) == 0){data.digital=5;}
-                 _0x87:
-000220 fc80      	SBRC R8,0
-000221 c003      	RJMP _0x89
-000222 e0e5      	LDI  R30,LOW(5)
-000223 e0f0      	LDI  R31,HIGH(5)
-000224 c010      	RJMP _0x95
-                 ; 0000 003A         else if((byte4&L3) == 0)    {data.digital=6;}
-                 _0x89:
-000225 fc81      	SBRC R8,1
-000226 c003      	RJMP _0x8B
-000227 e0e6      	LDI  R30,LOW(6)
-000228 e0f0      	LDI  R31,HIGH(6)
-000229 c00b      	RJMP _0x95
-                 ; 0000 003B         else if((byte4&R3) == 0)    {data.digital=7;}
-                 _0x8B:
-00022a fc82      	SBRC R8,2
-00022b c003      	RJMP _0x8D
-00022c e0e7      	LDI  R30,LOW(7)
-00022d e0f0      	LDI  R31,HIGH(7)
-00022e c006      	RJMP _0x95
-                 ; 0000 003C         else if((byte4&Start) == 0) {data.digital=8;}
-                 _0x8D:
-00022f fc83      	SBRC R8,3
-000230 c003      	RJMP _0x8F
-000231 e0e8      	LDI  R30,LOW(8)
-000232 e0f0      	LDI  R31,HIGH(8)
-000233 c001      	RJMP _0x95
-                 ; 0000 003D         else                        {data.digital=0;}
-                 _0x8F:
-000234 d03b      	RCALL SUBOPT_0xE
-                 _0x95:
                 +
-000235 93e0 0168+STS _data + ( 8 ) , R30
-000237 93f0 0169+STS _data + ( 8 ) + 1 , R31
+0001ec 93e0 0166+STS _data + ( 6 ) , R30
+0001ee 93f0 0167+STS _data + ( 6 ) + 1 , R31
+                 	__PUTW1MN _data,6
+                 ; 0000 0038       /***************************************************/
+                 ; 0000 0039         if((byte5&L1) == 0)         {data.digital=1;}
+0001f0 fcb2      	SBRC R11,2
+0001f1 c003      	RJMP _0x71
+0001f2 e0e1      	LDI  R30,LOW(1)
+0001f3 e0f0      	LDI  R31,HIGH(1)
+0001f4 c025      	RJMP _0x84
+                 ; 0000 003A         else if((byte5&R1) == 0)    {data.digital=2;}
+                 _0x71:
+0001f5 fcb3      	SBRC R11,3
+0001f6 c003      	RJMP _0x73
+0001f7 e0e2      	LDI  R30,LOW(2)
+0001f8 e0f0      	LDI  R31,HIGH(2)
+0001f9 c020      	RJMP _0x84
+                 ; 0000 003B         else if((byte5&L2) == 0)    {data.digital=3;}
+                 _0x73:
+0001fa fcb0      	SBRC R11,0
+0001fb c003      	RJMP _0x75
+0001fc e0e3      	LDI  R30,LOW(3)
+0001fd e0f0      	LDI  R31,HIGH(3)
+0001fe c01b      	RJMP _0x84
+                 ; 0000 003C         else if((byte5&R2) == 0)    {data.digital=4;}
+                 _0x75:
+0001ff fcb1      	SBRC R11,1
+000200 c003      	RJMP _0x77
+000201 e0e4      	LDI  R30,LOW(4)
+000202 e0f0      	LDI  R31,HIGH(4)
+000203 c016      	RJMP _0x84
+                 ; 0000 003D         else if((byte4&Select) == 0){data.digital=5;}
+                 _0x77:
+000204 fc80      	SBRC R8,0
+000205 c003      	RJMP _0x79
+000206 e0e5      	LDI  R30,LOW(5)
+000207 e0f0      	LDI  R31,HIGH(5)
+000208 c011      	RJMP _0x84
+                 ; 0000 003E         else if((byte4&L3) == 0)    {data.digital=6;}
+                 _0x79:
+000209 fc81      	SBRC R8,1
+00020a c003      	RJMP _0x7B
+00020b e0e6      	LDI  R30,LOW(6)
+00020c e0f0      	LDI  R31,HIGH(6)
+00020d c00c      	RJMP _0x84
+                 ; 0000 003F         else if((byte4&R3) == 0)    {data.digital=7;}
+                 _0x7B:
+00020e fc82      	SBRC R8,2
+00020f c003      	RJMP _0x7D
+000210 e0e7      	LDI  R30,LOW(7)
+000211 e0f0      	LDI  R31,HIGH(7)
+000212 c007      	RJMP _0x84
+                 ; 0000 0040         else if((byte4&Start) == 0) {data.digital=8;}
+                 _0x7D:
+000213 fc83      	SBRC R8,3
+000214 c003      	RJMP _0x7F
+000215 e0e8      	LDI  R30,LOW(8)
+000216 e0f0      	LDI  R31,HIGH(8)
+000217 c002      	RJMP _0x84
+                 ; 0000 0041         else                        {data.digital=0;}
+                 _0x7F:
+000218 e0e0      	LDI  R30,LOW(0)
+000219 e0f0      	LDI  R31,HIGH(0)
+                 _0x84:
+                +
+00021a 93e0 0168+STS _data + ( 8 ) , R30
+00021c 93f0 0169+STS _data + ( 8 ) + 1 , R31
                  	__PUTW1MN _data,8
-                 ; 0000 003E       /**************************************************/
-                 ; 0000 003F        RF_TX_send(P_Add,data);   // ham gui ma lenh den dia chi P_Add
-000239 925a      	ST   -Y,R5
-00023a e6e0      	LDI  R30,LOW(_data)
-00023b e0f1      	LDI  R31,HIGH(_data)
-00023c e0aa      	LDI  R26,10
-00023d d03f      	RCALL __PUTPARL
-00023e df1c      	RCALL _RF_TX_send
-                 ; 0000 0040        delay_ms(1);
-00023f e0a1      	LDI  R26,LOW(1)
-000240 d00d      	RCALL SUBOPT_0x4
-                 ; 0000 0041       }
-000241 cf6d      	RJMP _0x5E
-                 ; 0000 0042 }
-                 _0x91:
-000242 cfff      	RJMP _0x91
+                 ; 0000 0042       /**************************************************/
+                 ; 0000 0043        RF_TX_send(P_Add,data);   // ham gui ma lenh den dia chi P_Add
+00021e 925a      	ST   -Y,R5
+00021f e6e0      	LDI  R30,LOW(_data)
+000220 e0f1      	LDI  R31,HIGH(_data)
+000221 e0aa      	LDI  R26,10
+000222 d02b      	RCALL __PUTPARL
+000223 df37      	RCALL _RF_TX_send
+                 ; 0000 0044        delay_ms(1);
+000224 e0a1      	LDI  R26,LOW(1)
+000225 d00d      	RCALL SUBOPT_0x4
+                 ; 0000 0045       }
+000226 cf88      	RJMP _0x5E
+                 ; 0000 0046 }
+                 _0x81:
+000227 cfff      	RJMP _0x81
                  ; .FEND
                  	#ifndef __SLEEP_DEFINED__
                  	#endif
@@ -2297,138 +2242,102 @@ C:\Users\12\Desktop\robot_starter-2\robot_starter\Debug\List\tay_cam.asm(1133): 
                  	.CSEG
                  ;OPTIMIZER ADDED SUBROUTINE, CALLED 4 TIMES, CODE SIZE REDUCTION:4 WORDS
                  SUBOPT_0x0:
-000243 9891      	CBI  0x12,1
-000244 e0a1      	LDI  R26,LOW(1)
-000245 ce0b      	RJMP _access
+000228 9891      	CBI  0x12,1
+000229 e0a1      	LDI  R26,LOW(1)
+00022a ce26      	RJMP _access
                  
                  ;OPTIMIZER ADDED SUBROUTINE, CALLED 9 TIMES, CODE SIZE REDUCTION:6 WORDS
                  SUBOPT_0x1:
-000246 de0a      	RCALL _access
-000247 e0a0      	LDI  R26,LOW(0)
-000248 9508      	RET
+00022b de25      	RCALL _access
+00022c e0a0      	LDI  R26,LOW(0)
+00022d 9508      	RET
                  
                  ;OPTIMIZER ADDED SUBROUTINE, CALLED 5 TIMES, CODE SIZE REDUCTION:2 WORDS
                  SUBOPT_0x2:
-000249 e0a0      	LDI  R26,LOW(0)
-00024a ce06      	RJMP _access
+00022e e0a0      	LDI  R26,LOW(0)
+00022f ce21      	RJMP _access
                  
                  ;OPTIMIZER ADDED SUBROUTINE, CALLED 5 TIMES, CODE SIZE REDUCTION:2 WORDS
                  SUBOPT_0x3:
-00024b de05      	RCALL _access
-00024c e5aa      	LDI  R26,LOW(90)
-00024d 9508      	RET
+000230 de20      	RCALL _access
+000231 e5aa      	LDI  R26,LOW(90)
+000232 9508      	RET
                  
                  ;OPTIMIZER ADDED SUBROUTINE, CALLED 4 TIMES, CODE SIZE REDUCTION:1 WORDS
                  SUBOPT_0x4:
-00024e e0b0      	LDI  R27,0
-00024f c023      	RJMP _delay_ms
+000233 e0b0      	LDI  R27,0
+000234 c00f      	RJMP _delay_ms
                  
                  ;OPTIMIZER ADDED SUBROUTINE, CALLED 7 TIMES, CODE SIZE REDUCTION:10 WORDS
                  SUBOPT_0x5:
-000250 de90      	RCALL _SPI_RW
-000251 81a8      	LD   R26,Y
-000252 ce8e      	RJMP _SPI_RW
+000235 deab      	RCALL _SPI_RW
+000236 81a8      	LD   R26,Y
+000237 cea9      	RJMP _SPI_RW
                  
                  ;OPTIMIZER ADDED SUBROUTINE, CALLED 6 TIMES, CODE SIZE REDUCTION:13 WORDS
                  SUBOPT_0x6:
-000253 9aa9      	SBI  0x15,1
+000238 9aa9      	SBI  0x15,1
                 +
-000254 e18b     +LDI R24 , LOW ( 27 )
+000239 e18b     +LDI R24 , LOW ( 27 )
                 +__DELAY_USB_LOOP :
-000255 958a     +DEC R24
-000256 f7f1     +BRNE __DELAY_USB_LOOP
+00023a 958a     +DEC R24
+00023b f7f1     +BRNE __DELAY_USB_LOOP
                  	__DELAY_USB 27
-000257 9508      	RET
+00023c 9508      	RET
                  
                  ;OPTIMIZER ADDED SUBROUTINE, CALLED 2 TIMES, CODE SIZE REDUCTION:1 WORDS
                  SUBOPT_0x7:
-000258 e0e7      	LDI  R30,LOW(7)
-000259 93ea      	ST   -Y,R30
-00025a e7ae      	LDI  R26,LOW(126)
-00025b ceae      	RJMP _RF_Write
+00023d e0e7      	LDI  R30,LOW(7)
+00023e 93ea      	ST   -Y,R30
+00023f e7ae      	LDI  R26,LOW(126)
+000240 cec9      	RJMP _RF_Write
                  
                  ;OPTIMIZER ADDED SUBROUTINE, CALLED 3 TIMES, CODE SIZE REDUCTION:2 WORDS
                  SUBOPT_0x8:
-00025c 93ea      	ST   -Y,R30
-00025d e0a1      	LDI  R26,LOW(1)
-00025e ceab      	RJMP _RF_Write
-                 
-                 ;OPTIMIZER ADDED SUBROUTINE, CALLED 5 TIMES, CODE SIZE REDUCTION:2 WORDS
-                 SUBOPT_0x9:
-00025f e0e1      	LDI  R30,LOW(1)
-000260 e0f0      	LDI  R31,HIGH(1)
-000261 9508      	RET
-                 
-                 ;OPTIMIZER ADDED SUBROUTINE, CALLED 4 TIMES, CODE SIZE REDUCTION:7 WORDS
-                 SUBOPT_0xA:
-000262 93e0 0160 	STS  _data,R30
-000264 93f0 0161 	STS  _data+1,R31
-000266 9508      	RET
-                 
-                 ;OPTIMIZER ADDED SUBROUTINE, CALLED 5 TIMES, CODE SIZE REDUCTION:2 WORDS
-                 SUBOPT_0xB:
-000267 e0e2      	LDI  R30,LOW(2)
-000268 e0f0      	LDI  R31,HIGH(2)
-000269 9508      	RET
-                 
-                 ;OPTIMIZER ADDED SUBROUTINE, CALLED 5 TIMES, CODE SIZE REDUCTION:2 WORDS
-                 SUBOPT_0xC:
-00026a e0e3      	LDI  R30,LOW(3)
-00026b e0f0      	LDI  R31,HIGH(3)
-00026c 9508      	RET
-                 
-                 ;OPTIMIZER ADDED SUBROUTINE, CALLED 5 TIMES, CODE SIZE REDUCTION:2 WORDS
-                 SUBOPT_0xD:
-00026d e0e4      	LDI  R30,LOW(4)
-00026e e0f0      	LDI  R31,HIGH(4)
-00026f 9508      	RET
-                 
-                 ;OPTIMIZER ADDED SUBROUTINE, CALLED 4 TIMES, CODE SIZE REDUCTION:1 WORDS
-                 SUBOPT_0xE:
-000270 e0e0      	LDI  R30,LOW(0)
-000271 e0f0      	LDI  R31,HIGH(0)
-000272 9508      	RET
+000241 93ea      	ST   -Y,R30
+000242 e0a1      	LDI  R26,LOW(1)
+000243 cec6      	RJMP _RF_Write
                  
                  
                  	.CSEG
                  _delay_ms:
-000273 9610      	adiw r26,0
-000274 f039      	breq __delay_ms1
+000244 9610      	adiw r26,0
+000245 f039      	breq __delay_ms1
                  __delay_ms0:
                 +
-000275 ed80     +LDI R24 , LOW ( 0x7D0 )
-000276 e097     +LDI R25 , HIGH ( 0x7D0 )
+000246 ed80     +LDI R24 , LOW ( 0x7D0 )
+000247 e097     +LDI R25 , HIGH ( 0x7D0 )
                 +__DELAY_USW_LOOP :
-000277 9701     +SBIW R24 , 1
-000278 f7f1     +BRNE __DELAY_USW_LOOP
+000248 9701     +SBIW R24 , 1
+000249 f7f1     +BRNE __DELAY_USW_LOOP
                  	__DELAY_USW 0x7D0
-000279 95a8      	wdr
-00027a 9711      	sbiw r26,1
-00027b f7c9      	brne __delay_ms0
+00024a 95a8      	wdr
+00024b 9711      	sbiw r26,1
+00024c f7c9      	brne __delay_ms0
                  __delay_ms1:
-00027c 9508      	ret
+00024d 9508      	ret
                  
                  __PUTPARL:
-00027d 27bb      	CLR  R27
+00024e 27bb      	CLR  R27
                  __PUTPAR:
-00027e 0fea      	ADD  R30,R26
-00027f 1ffb      	ADC  R31,R27
+00024f 0fea      	ADD  R30,R26
+000250 1ffb      	ADC  R31,R27
                  __PUTPAR0:
-000280 9002      	LD   R0,-Z
-000281 920a      	ST   -Y,R0
-000282 9711      	SBIW R26,1
-000283 f7e1      	BRNE __PUTPAR0
-000284 9508      	RET
+000251 9002      	LD   R0,-Z
+000252 920a      	ST   -Y,R0
+000253 9711      	SBIW R26,1
+000254 f7e1      	BRNE __PUTPAR0
+000255 9508      	RET
                  
                  __SAVELOCR2:
-000285 931a      	ST   -Y,R17
-000286 930a      	ST   -Y,R16
-000287 9508      	RET
+000256 931a      	ST   -Y,R17
+000257 930a      	ST   -Y,R16
+000258 9508      	RET
                  
                  __LOADLOCR2:
-000288 8119      	LDD  R17,Y+1
-000289 8108      	LD   R16,Y
-00028a 9508      	RET
+000259 8119      	LDD  R17,Y+1
+00025a 8108      	LD   R16,Y
+00025b 9508      	RET
                  
                  ;END OF CODE MARKER
                  __END_OF_CODE:
@@ -2449,11 +2358,11 @@ counted separately from r26..r31 here.
 .dseg memory usage only counts static data declared with .byte
 
 ATmega8 register use summary:
-r0 :  10 r1 :   3 r2 :   0 r3 :   0 r4 :   4 r5 :   3 r6 :   4 r7 :   4 
-r8 :  10 r9 :   4 r10:   3 r11:  10 r12:   0 r13:   1 r14:   0 r15:   2 
+r0 :  10 r1 :   3 r2 :   0 r3 :   0 r4 :   3 r5 :   3 r6 :   2 r7 :   2 
+r8 :  10 r9 :   3 r10:   3 r11:  10 r12:   0 r13:   1 r14:   0 r15:   2 
 r16:   5 r17:  11 r18:   0 r19:   0 r20:   0 r21:   0 r22:   4 r23:   2 
-r24:  29 r25:   8 r26:  63 r27:   7 r28:   5 r29:   1 r30: 162 r31:  21 
-x  :   3 y  :  68 z  :   8 
+r24:  29 r25:   8 r26:  64 r27:   8 r28:   5 r29:   1 r30: 155 r31:  33 
+x  :   5 y  :  68 z  :   8 
 Registers used: 27 out of 35 (77.1%)
 
 ATmega8 instruction use summary:
@@ -2461,28 +2370,28 @@ ATmega8 instruction use summary:
 adiw  :   5 and   :   0 andi  :   2 asr   :   0 bclr  :   0 bld   :   0 
 brbc  :   0 brbs  :   0 brcc  :   0 brcs  :   0 break :   0 breq  :   2 
 brge  :   0 brhc  :   0 brhs  :   0 brid  :   0 brie  :   0 brlo  :   0 
-brlt  :   0 brmi  :   0 brne  :  18 brpl  :   0 brsh  :  10 brtc  :   0 
+brlt  :   0 brmi  :   0 brne  :  18 brpl  :   0 brsh  :   2 brtc  :   0 
 brts  :   0 brvc  :   0 brvs  :   0 bset  :   0 bst   :   0 cbi   :  17 
 cbr   :   0 clc   :   0 clh   :   0 cli   :   1 cln   :   0 clr   :   4 
-cls   :   0 clt   :   0 clv   :   0 clz   :   0 com   :   0 cp    :   9 
+cls   :   0 clt   :   0 clv   :   0 clz   :   0 com   :   0 cp    :   1 
 cpc   :   0 cpi   :   2 cpse  :   0 dec   :   7 des   :   0 eor   :   0 
 fmul  :   0 fmuls :   0 fmulsu:   0 icall :   0 ijmp  :   0 in    :   2 
-inc   :   0 ld    :  21 ldd   :  13 ldi   : 127 lds   :   0 lpm   :   7 
-lsl   :   1 lsr   :   2 mov   :  22 movw  :   3 mul   :   0 muls  :   0 
+inc   :   0 ld    :  21 ldd   :  13 ldi   : 142 lds   :   0 lpm   :   7 
+lsl   :   1 lsr   :   2 mov   :  24 movw  :   3 mul   :   0 muls  :   0 
 mulsu :   0 neg   :   0 nop   :   0 or    :   2 ori   :   2 out   :  26 
-pop   :   0 push  :   0 rcall : 113 ret   :  24 reti  :   2 rjmp  :  78 
+pop   :   0 push  :   0 rcall :  85 ret   :  18 reti  :   2 rjmp  :  70 
 rol   :   0 ror   :   2 sbc   :   0 sbci  :   0 sbi   :  14 sbic  :   2 
 sbis  :   0 sbiw  :   9 sbr   :   0 sbrc  :  16 sbrs  :   0 sec   :   0 
 seh   :   0 sei   :   1 sen   :   0 ser   :   0 ses   :   0 set   :   0 
-sev   :   0 sez   :   0 sleep :   0 spm   :   0 st    :  35 std   :   3 
-sts   :  12 sub   :   0 subi  :   2 swap  :   0 tst   :   0 wdr   :   1 
+sev   :   0 sez   :   0 sleep :   0 spm   :   0 st    :  37 std   :   3 
+sts   :   8 sub   :   0 subi  :   2 swap  :   0 tst   :   0 wdr   :   1 
 
 Instructions used: 40 out of 114 (35.1%)
 
 ATmega8 memory use summary [bytes]:
 Segment   Begin    End      Code   Data   Used    Size   Use%
 ---------------------------------------------------------------
-[.cseg] 0x000000 0x000516   1266     36   1302    8192  15.9%
+[.cseg] 0x000000 0x0004b8   1172     36   1208    8192  14.7%
 [.dseg] 0x000060 0x00016a      0     10     10    1024   1.0%
 [.eseg] 0x000000 0x000000      0      0      0     512   0.0%
 

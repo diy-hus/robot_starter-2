@@ -1,16 +1,16 @@
 
-AVRASM ver. 2.1.30  D:\Dropbox\2017\finding money\code\Final_code_PS2_fix analog\PS2_code_ANALOG\List\phat.asm Fri Mar 17 18:47:42 2017
+AVRASM ver. 2.1.30  C:\Users\108\Desktop\robot_starter-2\PS2_code_ANALOG\List\phat.asm Fri Sep 06 10:06:17 2019
 
-D:\Dropbox\2017\finding money\code\Final_code_PS2_fix analog\PS2_code_ANALOG\List\phat.asm(1086): warning: Register r5 already defined by the .DEF directive
-D:\Dropbox\2017\finding money\code\Final_code_PS2_fix analog\PS2_code_ANALOG\List\phat.asm(1087): warning: Register r4 already defined by the .DEF directive
-D:\Dropbox\2017\finding money\code\Final_code_PS2_fix analog\PS2_code_ANALOG\List\phat.asm(1088): warning: Register r7 already defined by the .DEF directive
-D:\Dropbox\2017\finding money\code\Final_code_PS2_fix analog\PS2_code_ANALOG\List\phat.asm(1089): warning: Register r6 already defined by the .DEF directive
-D:\Dropbox\2017\finding money\code\Final_code_PS2_fix analog\PS2_code_ANALOG\List\phat.asm(1090): warning: Register r9 already defined by the .DEF directive
-D:\Dropbox\2017\finding money\code\Final_code_PS2_fix analog\PS2_code_ANALOG\List\phat.asm(1091): warning: Register r8 already defined by the .DEF directive
-D:\Dropbox\2017\finding money\code\Final_code_PS2_fix analog\PS2_code_ANALOG\List\phat.asm(1092): warning: Register r11 already defined by the .DEF directive
-D:\Dropbox\2017\finding money\code\Final_code_PS2_fix analog\PS2_code_ANALOG\List\phat.asm(1093): warning: Register r10 already defined by the .DEF directive
-D:\Dropbox\2017\finding money\code\Final_code_PS2_fix analog\PS2_code_ANALOG\List\phat.asm(1094): warning: Register r13 already defined by the .DEF directive
-D:\Dropbox\2017\finding money\code\Final_code_PS2_fix analog\PS2_code_ANALOG\List\phat.asm(1095): warning: Register r12 already defined by the .DEF directive
+C:\Users\108\Desktop\robot_starter-2\PS2_code_ANALOG\List\phat.asm(1086): warning: Register r5 already defined by the .DEF directive
+C:\Users\108\Desktop\robot_starter-2\PS2_code_ANALOG\List\phat.asm(1087): warning: Register r4 already defined by the .DEF directive
+C:\Users\108\Desktop\robot_starter-2\PS2_code_ANALOG\List\phat.asm(1088): warning: Register r7 already defined by the .DEF directive
+C:\Users\108\Desktop\robot_starter-2\PS2_code_ANALOG\List\phat.asm(1089): warning: Register r6 already defined by the .DEF directive
+C:\Users\108\Desktop\robot_starter-2\PS2_code_ANALOG\List\phat.asm(1090): warning: Register r9 already defined by the .DEF directive
+C:\Users\108\Desktop\robot_starter-2\PS2_code_ANALOG\List\phat.asm(1091): warning: Register r8 already defined by the .DEF directive
+C:\Users\108\Desktop\robot_starter-2\PS2_code_ANALOG\List\phat.asm(1092): warning: Register r11 already defined by the .DEF directive
+C:\Users\108\Desktop\robot_starter-2\PS2_code_ANALOG\List\phat.asm(1093): warning: Register r10 already defined by the .DEF directive
+C:\Users\108\Desktop\robot_starter-2\PS2_code_ANALOG\List\phat.asm(1094): warning: Register r13 already defined by the .DEF directive
+C:\Users\108\Desktop\robot_starter-2\PS2_code_ANALOG\List\phat.asm(1095): warning: Register r12 already defined by the .DEF directive
                  
                  
                  ;CodeVisionAVR C Compiler V3.12 Advanced
@@ -1149,8 +1149,8 @@ D:\Dropbox\2017\finding money\code\Final_code_PS2_fix analog\PS2_code_ANALOG\Lis
                  
                  ;GLOBAL REGISTER VARIABLES INITIALIZATION
                  __REG_VARS:
-00001c 0097
-00001d 0000      	.DB  0x97,0x0,0x0,0x0
+00001c 00b5
+00001d 0000      	.DB  0xB5,0x0,0x0,0x0
                  
                  
                  __GLOBAL_INI_TBL:
@@ -1591,16 +1591,16 @@ D:\Dropbox\2017\finding money\code\Final_code_PS2_fix analog\PS2_code_ANALOG\Lis
                  ;}
 0000e0 9508      	RET
                  ; .FEND
-                 ;char P_Add = 0x97;         // dia chi cua tay cam ( cam giong voi dia chi cua robot)
+                 ;char P_Add = 0xB5;         // dia chi cua tay cam ( cam giong voi dia chi cua robot)
                  ;#include "nrf_code.c"
                  ;unsigned char SPI_RW(unsigned char Buff);                                       //Function used for text moving
-                 ;void RF_Init();                                                                 //Function allow to Initialize RF device
-                 ;void RF_Write(unsigned char Reg_Add, unsigned char Value);                      //Function to write a value to a registe ...
-                 ;void RF_Write_Address(unsigned char Address);                                   //Function to write TX and RX address
-                 ;void RX_Mode_Active();                                                          //Function to put nRF in RX mode
-                 ;void TX_Mode_Active();                                                          //Function to put nRF in TX mode
-                 ;void RF_Config();                                                               //Function to config the nRF
-                 ;void RF_TX_send(unsigned char RX_Address, unsigned char Value);                 //Function to send data Value to a speci ...
+                 ;void RF_Init();
+                 ;void RF_Write(unsigned char Reg_Add, unsigned char Value);
+                 ;void RF_Write_Address(unsigned char Address);
+                 ;void RX_Mode_Active();
+                 ;void TX_Mode_Active();
+                 ;void RF_Config();
+                 ;void RF_TX_send(unsigned char RX_Address, unsigned char Value);
                  ;
                  ;unsigned char SPI_RW(unsigned char Buff)
                  ; 0000 0008 {
@@ -1758,7 +1758,6 @@ D:\Dropbox\2017\finding money\code\Final_code_PS2_fix analog\PS2_code_ANALOG\Lis
 000125 9621      	ADIW R28,1
 000126 9508      	RET
                  ; .FEND
-                 ;
                  ;
                  ;void RX_Mode_Active()                                             //Function to put nRF in RX mode
                  ;{

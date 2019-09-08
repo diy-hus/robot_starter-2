@@ -1,0 +1,39 @@
+glcd_moveto(0,0); 
+                itoa(receive.analog_l, glcd_buff);
+                glcd_outtext(glcd_buff);
+                glcd_moveto(20,0);              
+                itoa(receive.analog_r, glcd_buff);
+                glcd_outtext(glcd_buff);
+                glcd_moveto(0,20);
+                itoa(receive.digital_l, glcd_buff);
+                glcd_outtext(glcd_buff);
+                glcd_moveto(20,20);
+                itoa(receive.digital_r, glcd_buff);
+                glcd_outtext(glcd_buff);   
+               
+                if (receive.analog_l ==128)   {
+                    control_motor(2,1,0);              
+                    control_motor(1,1,0);} 
+                    
+                    
+                    
+                     
+                if (receive.analog_l >=128)   {tien(receive.analog_l);}
+                if (receive.analog_l <=128)   {lui(receive.analog_l);}
+                if (receive.analog_r ==128)   {RC=16;}
+                //------------------------------------
+                if ((receive.analog_r >=128)&(receive.analog_r <=148))      {RC=17;}
+                if ((receive.analog_r >=149)&(receive.analog_r <=170))      {RC=18;}
+                if ((receive.analog_r >=171)&(receive.analog_r <=190))      {RC=19;}  
+                if ((receive.analog_r >=191)&(receive.analog_r <=210))      {RC=20;}
+                if ((receive.analog_r >=211)&(receive.analog_r <=230))      {RC=21;} 
+                if (receive.analog_r >=231)                                 {RC=22;}
+                //------------------------------------
+                if ((receive.analog_r >=111)&(receive.analog_r <=127))      {RC=15;}
+                if ((receive.analog_r >=91)&(receive.analog_r <=110))       {RC=14;}
+                if ((receive.analog_r >=71)&(receive.analog_r <=90))        {RC=13;}  
+                if ((receive.analog_r >=51)&(receive.analog_r <=70))        {RC=12;}
+                if ((receive.analog_r >=21)&(receive.analog_r <=50))        {RC=11;} 
+                if (receive.analog_r <=20)                                  {RC=10;}                             
+            }
+      }

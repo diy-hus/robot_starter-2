@@ -1,4 +1,4 @@
-;char P_Add = 0x89;         // dia chi cua tay cam ( cam giong voi dia chi cua robot)
+;char P_Add = 0xB5;         // dia chi cua tay cam ( cam giong voi dia chi cua robot)
 ;#include <mega8.h>
 ;PCODE: $00000000 VOL: 0
 	#ifndef __SLEEP_DEFINED__
@@ -385,14 +385,14 @@
 ;        int digital;
 ;    }data_send;
 ;
-;unsigned char SPI_RW(unsigned char Buff);                                       //Function used for text moving
-;void RF_Init();                                                                 //Function allow to Initialize RF device
-;void RF_Write(unsigned char Reg_Add, unsigned char Value);                      //Function to write a value to a registe ...
-;void RF_Write_Address(unsigned char Address);                                   //Function to write TX and RX address
-;void RX_Mode_Active();                                                          //Function to put nRF in RX mode
-;void TX_Mode_Active();                                                          //Function to put nRF in TX mode
-;void RF_Config();                                                               //Function to config the nRF
-;void RF_TX_send(unsigned char RX_Address, data_send send);                 //Function to send data Value to a specify RX ...
+;unsigned char SPI_RW(unsigned char Buff);
+;void RF_Init();
+;void RF_Write(unsigned char Reg_Add, unsigned char Value);
+;void RF_Write_Address(unsigned char Address);
+;void RX_Mode_Active();
+;void TX_Mode_Active();
+;void RF_Config();
+;void RF_TX_send(unsigned char RX_Address, data_send send);
 ;
 ;
 ;unsigned char SPI_RW(unsigned char Buff)
@@ -583,7 +583,6 @@
 ;PCODE: $0000015A VOL: 0
 ;PCODE: $0000015B VOL: 0
 ;
-;
 ;void RX_Mode_Active()                                             //Function to put nRF in RX mode
 ;{
 ;PCODE: $0000015C VOL: 0
@@ -742,26 +741,6 @@
 ;  CSN=1;
 ;PCODE: $000001C1 VOL: 0
 ;PCODE: $000001C2 VOL: 0
-;/*  delay_us(10);
-;  CSN=0;
-;  SPI_RW(0b10100000);
-;  SPI_RW(send.a);
-;  CSN=1;
-;  delay_us(10);
-;  CSN=0;
-;  SPI_RW(0b10100000);
-;  SPI_RW(send.b);
-;  CSN=1;
-;  delay_us(10);
-;  CSN=0;
-;  SPI_RW(0b10100000);
-;  SPI_RW(send.c);
-;  CSN=1;
-;  delay_us(10);
-;  CSN=0;
-;  SPI_RW(0b10100000);
-;  SPI_RW(send.d);
-;  CSN=1;*/
 ;  CE=1;
 ;PCODE: $000001C3 VOL: 0
 ;PCODE: $000001C4 VOL: 0
@@ -915,53 +894,65 @@
 ; 0000 001E 		{
 ; 0000 001F 		TX_Mode_Active();
 ;PCODE: $00000213 VOL: 0
-; 0000 0020 		if(ljoyy < 120)             {data.analog_l=1;} //analog trai tien
+; 0000 0020 		/*
+; 0000 0021         if(ljoyy < 80)             {data.analog_l=1;} //analog trai tien
+; 0000 0022         else if(ljoyy > 170)        {data.analog_l=2;} //analog trai lui
+; 0000 0023         else if(ljoyx < 80)        {data.analog_l=3;} //analog trai sang trai
+; 0000 0024         else if(ljoyx > 170)        {data.analog_l=4;} //analog trai sang phai
+; 0000 0025         else                        {data.analog_l=0;} //gia tri o giua
+; 0000 0026         if(rjoyy < 80)             {data.analog_r=1;} //analog phai tien
+; 0000 0027         else if(rjoyy > 170)        {data.analog_r=2;} //analog phai lui
+; 0000 0028         else if(rjoyx < 80)        {data.analog_r=3;} //analog phai sang trai
+; 0000 0029         else if(rjoyx > 170)        {data.analog_r=4;} //analog phai sang phai
+; 0000 002A         else                        {data.analog_r=0;} //gia tri o giua
+; 0000 002B         */
+; 0000 002C         data.analog_l = ljoyy;
 ;PCODE: $00000214 VOL: 0
 ;PCODE: $00000215 VOL: 0
 ;PCODE: $00000216 VOL: 0
+; 0000 002D         data.analog_r = rjoyx;
 ;PCODE: $00000217 VOL: 0
 ;PCODE: $00000218 VOL: 0
-; 0000 0021         else if(ljoyy > 135)        {data.analog_l=2;} //analog trai lui
 ;PCODE: $00000219 VOL: 0
 ;PCODE: $0000021A VOL: 0
 ;PCODE: $0000021B VOL: 0
+; 0000 002E         if((byte4&Up) == 0)         {data.digital_l=1;}
 ;PCODE: $0000021C VOL: 0
 ;PCODE: $0000021D VOL: 0
 ;PCODE: $0000021E VOL: 0
 ;PCODE: $0000021F VOL: 0
-; 0000 0022         else if(ljoyx < 120)        {data.analog_l=3;} //analog trai sang trai
 ;PCODE: $00000220 VOL: 0
 ;PCODE: $00000221 VOL: 0
+; 0000 002F         else if((byte4&Left) == 0)  {data.digital_l=3;}
 ;PCODE: $00000222 VOL: 0
 ;PCODE: $00000223 VOL: 0
 ;PCODE: $00000224 VOL: 0
 ;PCODE: $00000225 VOL: 0
 ;PCODE: $00000226 VOL: 0
-; 0000 0023         else if(ljoyx > 135)        {data.analog_l=4;} //analog trai sang phai
 ;PCODE: $00000227 VOL: 0
 ;PCODE: $00000228 VOL: 0
 ;PCODE: $00000229 VOL: 0
+; 0000 0030         else if((byte4&Down) == 0)  {data.digital_l=2;}
 ;PCODE: $0000022A VOL: 0
 ;PCODE: $0000022B VOL: 0
 ;PCODE: $0000022C VOL: 0
 ;PCODE: $0000022D VOL: 0
-; 0000 0024         else                        {data.analog_l=0;} //gia tri o giua
 ;PCODE: $0000022E VOL: 0
 ;PCODE: $0000022F VOL: 0
 ;PCODE: $00000230 VOL: 0
 ;PCODE: $00000231 VOL: 0
+; 0000 0031         else if((byte4&Right) == 0) {data.digital_l=4;}
 ;PCODE: $00000232 VOL: 0
 ;PCODE: $00000233 VOL: 0
 ;PCODE: $00000234 VOL: 0
 ;PCODE: $00000235 VOL: 0
-; 0000 0025         if(rjoyy < 120)             {data.analog_r=1;} //analog phai tien
 ;PCODE: $00000236 VOL: 0
 ;PCODE: $00000237 VOL: 0
 ;PCODE: $00000238 VOL: 0
 ;PCODE: $00000239 VOL: 0
+; 0000 0032         else                        {data.digital_l=0;}
 ;PCODE: $0000023A VOL: 0
 ;PCODE: $0000023B VOL: 0
-; 0000 0026         else if(rjoyy > 135)        {data.analog_r=2;} //analog phai lui
 ;PCODE: $0000023C VOL: 0
 ;PCODE: $0000023D VOL: 0
 ;PCODE: $0000023E VOL: 0
@@ -969,43 +960,43 @@
 ;PCODE: $00000240 VOL: 0
 ;PCODE: $00000241 VOL: 0
 ;PCODE: $00000242 VOL: 0
+; 0000 0033         if((byte5&Tamgiac) == 0)    {data.digital_r=1;}
 ;PCODE: $00000243 VOL: 0
-; 0000 0027         else if(rjoyx < 120)        {data.analog_r=3;} //analog phai sang trai
 ;PCODE: $00000244 VOL: 0
 ;PCODE: $00000245 VOL: 0
 ;PCODE: $00000246 VOL: 0
 ;PCODE: $00000247 VOL: 0
 ;PCODE: $00000248 VOL: 0
+; 0000 0034         else if((byte5&Tron) == 0)  {data.digital_r=4;}
 ;PCODE: $00000249 VOL: 0
 ;PCODE: $0000024A VOL: 0
 ;PCODE: $0000024B VOL: 0
-; 0000 0028         else if(rjoyx > 135)        {data.analog_r=4;} //analog phai sang phai
 ;PCODE: $0000024C VOL: 0
 ;PCODE: $0000024D VOL: 0
 ;PCODE: $0000024E VOL: 0
 ;PCODE: $0000024F VOL: 0
 ;PCODE: $00000250 VOL: 0
+; 0000 0035         else if((byte5&Nhan) == 0)  {data.digital_r=2;}
 ;PCODE: $00000251 VOL: 0
 ;PCODE: $00000252 VOL: 0
 ;PCODE: $00000253 VOL: 0
-; 0000 0029         else                        {data.analog_r=0;} //gia tri o giua
 ;PCODE: $00000254 VOL: 0
 ;PCODE: $00000255 VOL: 0
 ;PCODE: $00000256 VOL: 0
 ;PCODE: $00000257 VOL: 0
 ;PCODE: $00000258 VOL: 0
+; 0000 0036         else if((byte5&Vuong) == 0) {data.digital_r=3;}
 ;PCODE: $00000259 VOL: 0
 ;PCODE: $0000025A VOL: 0
 ;PCODE: $0000025B VOL: 0
 ;PCODE: $0000025C VOL: 0
-; 0000 002A         if((byte4&Up) == 0)         {data.digital_l=1;}
 ;PCODE: $0000025D VOL: 0
 ;PCODE: $0000025E VOL: 0
 ;PCODE: $0000025F VOL: 0
 ;PCODE: $00000260 VOL: 0
+; 0000 0037         else                        {data.digital_r=0;}
 ;PCODE: $00000261 VOL: 0
 ;PCODE: $00000262 VOL: 0
-; 0000 002B         else if((byte4&Left) == 0)  {data.digital_l=3;}
 ;PCODE: $00000263 VOL: 0
 ;PCODE: $00000264 VOL: 0
 ;PCODE: $00000265 VOL: 0
@@ -1013,178 +1004,105 @@
 ;PCODE: $00000267 VOL: 0
 ;PCODE: $00000268 VOL: 0
 ;PCODE: $00000269 VOL: 0
+; 0000 0038       /***************************************************/
+; 0000 0039         if((byte5&L1) == 0)         {data.digital=1;}
 ;PCODE: $0000026A VOL: 0
-; 0000 002C         else if((byte4&Down) == 0)  {data.digital_l=2;}
 ;PCODE: $0000026B VOL: 0
 ;PCODE: $0000026C VOL: 0
 ;PCODE: $0000026D VOL: 0
 ;PCODE: $0000026E VOL: 0
 ;PCODE: $0000026F VOL: 0
+; 0000 003A         else if((byte5&R1) == 0)    {data.digital=2;}
 ;PCODE: $00000270 VOL: 0
 ;PCODE: $00000271 VOL: 0
 ;PCODE: $00000272 VOL: 0
-; 0000 002D         else if((byte4&Right) == 0) {data.digital_l=4;}
 ;PCODE: $00000273 VOL: 0
 ;PCODE: $00000274 VOL: 0
 ;PCODE: $00000275 VOL: 0
 ;PCODE: $00000276 VOL: 0
 ;PCODE: $00000277 VOL: 0
+; 0000 003B         else if((byte5&L2) == 0)    {data.digital=3;}
 ;PCODE: $00000278 VOL: 0
 ;PCODE: $00000279 VOL: 0
 ;PCODE: $0000027A VOL: 0
-; 0000 002E         else                        {data.digital_l=0;}
 ;PCODE: $0000027B VOL: 0
 ;PCODE: $0000027C VOL: 0
 ;PCODE: $0000027D VOL: 0
 ;PCODE: $0000027E VOL: 0
 ;PCODE: $0000027F VOL: 0
+; 0000 003C         else if((byte5&R2) == 0)    {data.digital=4;}
 ;PCODE: $00000280 VOL: 0
 ;PCODE: $00000281 VOL: 0
 ;PCODE: $00000282 VOL: 0
 ;PCODE: $00000283 VOL: 0
-; 0000 002F         if((byte5&Tamgiac) == 0)    {data.digital_r=1;}
 ;PCODE: $00000284 VOL: 0
 ;PCODE: $00000285 VOL: 0
 ;PCODE: $00000286 VOL: 0
 ;PCODE: $00000287 VOL: 0
+; 0000 003D         else if((byte4&Select) == 0){data.digital=5;}
 ;PCODE: $00000288 VOL: 0
 ;PCODE: $00000289 VOL: 0
-; 0000 0030         else if((byte5&Tron) == 0)  {data.digital_r=4;}
 ;PCODE: $0000028A VOL: 0
 ;PCODE: $0000028B VOL: 0
 ;PCODE: $0000028C VOL: 0
 ;PCODE: $0000028D VOL: 0
 ;PCODE: $0000028E VOL: 0
 ;PCODE: $0000028F VOL: 0
+; 0000 003E         else if((byte4&L3) == 0)    {data.digital=6;}
 ;PCODE: $00000290 VOL: 0
 ;PCODE: $00000291 VOL: 0
-; 0000 0031         else if((byte5&Nhan) == 0)  {data.digital_r=2;}
 ;PCODE: $00000292 VOL: 0
 ;PCODE: $00000293 VOL: 0
 ;PCODE: $00000294 VOL: 0
 ;PCODE: $00000295 VOL: 0
 ;PCODE: $00000296 VOL: 0
 ;PCODE: $00000297 VOL: 0
+; 0000 003F         else if((byte4&R3) == 0)    {data.digital=7;}
 ;PCODE: $00000298 VOL: 0
 ;PCODE: $00000299 VOL: 0
-; 0000 0032         else if((byte5&Vuong) == 0) {data.digital_r=3;}
 ;PCODE: $0000029A VOL: 0
 ;PCODE: $0000029B VOL: 0
 ;PCODE: $0000029C VOL: 0
 ;PCODE: $0000029D VOL: 0
 ;PCODE: $0000029E VOL: 0
 ;PCODE: $0000029F VOL: 0
+; 0000 0040         else if((byte4&Start) == 0) {data.digital=8;}
 ;PCODE: $000002A0 VOL: 0
 ;PCODE: $000002A1 VOL: 0
-; 0000 0033         else                        {data.digital_r=0;}
 ;PCODE: $000002A2 VOL: 0
 ;PCODE: $000002A3 VOL: 0
 ;PCODE: $000002A4 VOL: 0
 ;PCODE: $000002A5 VOL: 0
 ;PCODE: $000002A6 VOL: 0
 ;PCODE: $000002A7 VOL: 0
+; 0000 0041         else                        {data.digital=0;}
 ;PCODE: $000002A8 VOL: 0
 ;PCODE: $000002A9 VOL: 0
 ;PCODE: $000002AA VOL: 0
-; 0000 0034       /***************************************************/
-; 0000 0035         if((byte5&L1) == 0)         {data.digital=1;}
 ;PCODE: $000002AB VOL: 0
 ;PCODE: $000002AC VOL: 0
 ;PCODE: $000002AD VOL: 0
 ;PCODE: $000002AE VOL: 0
 ;PCODE: $000002AF VOL: 0
 ;PCODE: $000002B0 VOL: 0
-; 0000 0036         else if((byte5&R1) == 0)    {data.digital=2;}
 ;PCODE: $000002B1 VOL: 0
 ;PCODE: $000002B2 VOL: 0
 ;PCODE: $000002B3 VOL: 0
 ;PCODE: $000002B4 VOL: 0
+; 0000 0042       /**************************************************/
+; 0000 0043        RF_TX_send(P_Add,data);   // ham gui ma lenh den dia chi P_Add
 ;PCODE: $000002B5 VOL: 0
 ;PCODE: $000002B6 VOL: 0
 ;PCODE: $000002B7 VOL: 0
 ;PCODE: $000002B8 VOL: 0
-; 0000 0037         else if((byte5&L2) == 0)    {data.digital=3;}
+; 0000 0044        delay_ms(1);
 ;PCODE: $000002B9 VOL: 0
 ;PCODE: $000002BA VOL: 0
 ;PCODE: $000002BB VOL: 0
+; 0000 0045       }
 ;PCODE: $000002BC VOL: 0
 ;PCODE: $000002BD VOL: 0
+; 0000 0046 }
 ;PCODE: $000002BE VOL: 0
 ;PCODE: $000002BF VOL: 0
 ;PCODE: $000002C0 VOL: 0
-; 0000 0038         else if((byte5&R2) == 0)    {data.digital=4;}
-;PCODE: $000002C1 VOL: 0
-;PCODE: $000002C2 VOL: 0
-;PCODE: $000002C3 VOL: 0
-;PCODE: $000002C4 VOL: 0
-;PCODE: $000002C5 VOL: 0
-;PCODE: $000002C6 VOL: 0
-;PCODE: $000002C7 VOL: 0
-;PCODE: $000002C8 VOL: 0
-; 0000 0039         else if((byte4&Select) == 0){data.digital=5;}
-;PCODE: $000002C9 VOL: 0
-;PCODE: $000002CA VOL: 0
-;PCODE: $000002CB VOL: 0
-;PCODE: $000002CC VOL: 0
-;PCODE: $000002CD VOL: 0
-;PCODE: $000002CE VOL: 0
-;PCODE: $000002CF VOL: 0
-;PCODE: $000002D0 VOL: 0
-; 0000 003A         else if((byte4&L3) == 0)    {data.digital=6;}
-;PCODE: $000002D1 VOL: 0
-;PCODE: $000002D2 VOL: 0
-;PCODE: $000002D3 VOL: 0
-;PCODE: $000002D4 VOL: 0
-;PCODE: $000002D5 VOL: 0
-;PCODE: $000002D6 VOL: 0
-;PCODE: $000002D7 VOL: 0
-;PCODE: $000002D8 VOL: 0
-; 0000 003B         else if((byte4&R3) == 0)    {data.digital=7;}
-;PCODE: $000002D9 VOL: 0
-;PCODE: $000002DA VOL: 0
-;PCODE: $000002DB VOL: 0
-;PCODE: $000002DC VOL: 0
-;PCODE: $000002DD VOL: 0
-;PCODE: $000002DE VOL: 0
-;PCODE: $000002DF VOL: 0
-;PCODE: $000002E0 VOL: 0
-; 0000 003C         else if((byte4&Start) == 0) {data.digital=8;}
-;PCODE: $000002E1 VOL: 0
-;PCODE: $000002E2 VOL: 0
-;PCODE: $000002E3 VOL: 0
-;PCODE: $000002E4 VOL: 0
-;PCODE: $000002E5 VOL: 0
-;PCODE: $000002E6 VOL: 0
-;PCODE: $000002E7 VOL: 0
-;PCODE: $000002E8 VOL: 0
-; 0000 003D         else                        {data.digital=0;}
-;PCODE: $000002E9 VOL: 0
-;PCODE: $000002EA VOL: 0
-;PCODE: $000002EB VOL: 0
-;PCODE: $000002EC VOL: 0
-;PCODE: $000002ED VOL: 0
-;PCODE: $000002EE VOL: 0
-;PCODE: $000002EF VOL: 0
-;PCODE: $000002F0 VOL: 0
-;PCODE: $000002F1 VOL: 0
-;PCODE: $000002F2 VOL: 0
-;PCODE: $000002F3 VOL: 0
-;PCODE: $000002F4 VOL: 0
-;PCODE: $000002F5 VOL: 0
-; 0000 003E       /**************************************************/
-; 0000 003F        RF_TX_send(P_Add,data);   // ham gui ma lenh den dia chi P_Add
-;PCODE: $000002F6 VOL: 0
-;PCODE: $000002F7 VOL: 0
-;PCODE: $000002F8 VOL: 0
-;PCODE: $000002F9 VOL: 0
-; 0000 0040        delay_ms(1);
-;PCODE: $000002FA VOL: 0
-;PCODE: $000002FB VOL: 0
-;PCODE: $000002FC VOL: 0
-; 0000 0041       }
-;PCODE: $000002FD VOL: 0
-;PCODE: $000002FE VOL: 0
-; 0000 0042 }
-;PCODE: $000002FF VOL: 0
-;PCODE: $00000300 VOL: 0
-;PCODE: $00000301 VOL: 0

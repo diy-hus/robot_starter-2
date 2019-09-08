@@ -1,4 +1,4 @@
-unsigned char Code_tay_cam1 = 0x89;
+unsigned char Code_tay_cam1 = 0xB5;
 #include <mega8.h>
 #include "INIT.h"
 #include "RF.h"
@@ -22,6 +22,7 @@ while (1)
         RX_Mode();
         if(IRQ==0)                      
             {                          
+                LED=!LED;
                 glcd_clear();
                 RF_RX_Read();      
                 glcd_moveto(0,0); 

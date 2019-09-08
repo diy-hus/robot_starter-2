@@ -1129,7 +1129,7 @@ _tbl16_G100:
 
 ;GLOBAL REGISTER VARIABLES INITIALIZATION
 __REG_VARS:
-	.DB  0x97,0x0,0x0,0x0
+	.DB  0xB5,0x0,0x0,0x0
 
 
 __GLOBAL_INI_TBL:
@@ -1554,16 +1554,16 @@ _0x2060003:
 ;}
 	RET
 ; .FEND
-;char P_Add = 0x97;         // dia chi cua tay cam ( cam giong voi dia chi cua robot)
+;char P_Add = 0xB5;         // dia chi cua tay cam ( cam giong voi dia chi cua robot)
 ;#include "nrf_code.c"
 ;unsigned char SPI_RW(unsigned char Buff);                                       //Function used for text moving
-;void RF_Init();                                                                 //Function allow to Initialize RF device
-;void RF_Write(unsigned char Reg_Add, unsigned char Value);                      //Function to write a value to a registe ...
-;void RF_Write_Address(unsigned char Address);                                   //Function to write TX and RX address
-;void RX_Mode_Active();                                                          //Function to put nRF in RX mode
-;void TX_Mode_Active();                                                          //Function to put nRF in TX mode
-;void RF_Config();                                                               //Function to config the nRF
-;void RF_TX_send(unsigned char RX_Address, unsigned char Value);                 //Function to send data Value to a speci ...
+;void RF_Init();
+;void RF_Write(unsigned char Reg_Add, unsigned char Value);
+;void RF_Write_Address(unsigned char Address);
+;void RX_Mode_Active();
+;void TX_Mode_Active();
+;void RF_Config();
+;void RF_TX_send(unsigned char RX_Address, unsigned char Value);
 ;
 ;unsigned char SPI_RW(unsigned char Buff)
 ; 0000 0008 {
@@ -1705,7 +1705,6 @@ _RF_Write_Address:
 	ADIW R28,1
 	RET
 ; .FEND
-;
 ;
 ;void RX_Mode_Active()                                             //Function to put nRF in RX mode
 ;{

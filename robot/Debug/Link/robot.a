@@ -1,8 +1,4 @@
-;
-;unsigned char Code_tay_cam1 = 0x89;
-;unsigned char Code_tay_cam2;
-;unsigned char Code_tay_cam3;
-;unsigned char Code_tay_cam4;
+;unsigned char Code_tay_cam1 = 0xB5;
 ;#include <mega8.h>
 ;PCODE: $00000000 VOL: 0
 	#ifndef __SLEEP_DEFINED__
@@ -144,13 +140,10 @@
 ;PCODE: $00000079 VOL: 0
 ;PCODE: $0000007A VOL: 0
 ;PCODE: $0000007B VOL: 0
-;#include "RF.h"
 ;PCODE: $0000007C VOL: 0
 ;PCODE: $0000007D VOL: 0
 ;PCODE: $0000007E VOL: 0
 ;PCODE: $0000007F VOL: 0
-;	Buff -> Y+1
-;	bit_ctr -> R17
 ;PCODE: $00000080 VOL: 0
 ;PCODE: $00000081 VOL: 0
 ;PCODE: $00000082 VOL: 0
@@ -179,10 +172,19 @@
 ;PCODE: $00000099 VOL: 0
 ;PCODE: $0000009A VOL: 0
 ;PCODE: $0000009B VOL: 0
+
+	.DSEG
+_0xA:
+	.BYTE 0x1D
+;#include "RF.h"
+
+	.CSEG
 ;PCODE: $0000009C VOL: 0
 ;PCODE: $0000009D VOL: 0
 ;PCODE: $0000009E VOL: 0
 ;PCODE: $0000009F VOL: 0
+;	Buff -> Y+1
+;	bit_ctr -> R17
 ;PCODE: $000000A0 VOL: 0
 ;PCODE: $000000A1 VOL: 0
 ;PCODE: $000000A2 VOL: 0
@@ -198,8 +200,6 @@
 ;PCODE: $000000AC VOL: 0
 ;PCODE: $000000AD VOL: 0
 ;PCODE: $000000AE VOL: 0
-;	Buff -> R17
-;	bit_ctr -> R16
 ;PCODE: $000000AF VOL: 0
 ;PCODE: $000000B0 VOL: 0
 ;PCODE: $000000B1 VOL: 0
@@ -232,6 +232,8 @@
 ;PCODE: $000000CC VOL: 0
 ;PCODE: $000000CD VOL: 0
 ;PCODE: $000000CE VOL: 0
+;	Buff -> R17
+;	bit_ctr -> R16
 ;PCODE: $000000CF VOL: 0
 ;PCODE: $000000D0 VOL: 0
 ;PCODE: $000000D1 VOL: 0
@@ -245,8 +247,6 @@
 ;PCODE: $000000D9 VOL: 0
 ;PCODE: $000000DA VOL: 0
 ;PCODE: $000000DB VOL: 0
-;	Reg_Add -> Y+1
-;	Value -> Y+0
 ;PCODE: $000000DC VOL: 0
 ;PCODE: $000000DD VOL: 0
 ;PCODE: $000000DE VOL: 0
@@ -264,8 +264,6 @@
 ;PCODE: $000000EA VOL: 0
 ;PCODE: $000000EB VOL: 0
 ;PCODE: $000000EC VOL: 0
-;	Reg_Add -> Y+1
-;	Value -> Y+0
 ;PCODE: $000000ED VOL: 0
 ;PCODE: $000000EE VOL: 0
 ;PCODE: $000000EF VOL: 0
@@ -281,6 +279,8 @@
 ;PCODE: $000000F9 VOL: 0
 ;PCODE: $000000FA VOL: 0
 ;PCODE: $000000FB VOL: 0
+;	Reg_Add -> Y+1
+;	Value -> Y+0
 ;PCODE: $000000FC VOL: 0
 ;PCODE: $000000FD VOL: 0
 ;PCODE: $000000FE VOL: 0
@@ -291,8 +291,6 @@
 ;PCODE: $00000103 VOL: 0
 ;PCODE: $00000104 VOL: 0
 ;PCODE: $00000105 VOL: 0
-;	Reg_Add -> Y+1
-;	Value -> Y+0
 ;PCODE: $00000106 VOL: 0
 ;PCODE: $00000107 VOL: 0
 ;PCODE: $00000108 VOL: 0
@@ -300,6 +298,8 @@
 ;PCODE: $0000010A VOL: 0
 ;PCODE: $0000010B VOL: 0
 ;PCODE: $0000010C VOL: 0
+;	Reg_Add -> Y+1
+;	Value -> Y+0
 ;PCODE: $0000010D VOL: 0
 ;PCODE: $0000010E VOL: 0
 ;PCODE: $0000010F VOL: 0
@@ -318,7 +318,6 @@
 ;PCODE: $0000011C VOL: 0
 ;PCODE: $0000011D VOL: 0
 ;PCODE: $0000011E VOL: 0
-;	command -> Y+0
 ;PCODE: $0000011F VOL: 0
 ;PCODE: $00000120 VOL: 0
 ;PCODE: $00000121 VOL: 0
@@ -326,16 +325,14 @@
 ;PCODE: $00000123 VOL: 0
 ;PCODE: $00000124 VOL: 0
 ;PCODE: $00000125 VOL: 0
+;	Reg_Add -> Y+1
+;	Value -> Y+0
 ;PCODE: $00000126 VOL: 0
 ;PCODE: $00000127 VOL: 0
 ;PCODE: $00000128 VOL: 0
 ;PCODE: $00000129 VOL: 0
 ;PCODE: $0000012A VOL: 0
 ;PCODE: $0000012B VOL: 0
-;	Address1 -> Y+3
-;	Address2 -> Y+2
-;	Address3 -> Y+1
-;	Address4 -> Y+0
 ;PCODE: $0000012C VOL: 0
 ;PCODE: $0000012D VOL: 0
 ;PCODE: $0000012E VOL: 0
@@ -355,6 +352,7 @@
 ;PCODE: $0000013C VOL: 0
 ;PCODE: $0000013D VOL: 0
 ;PCODE: $0000013E VOL: 0
+;	command -> Y+0
 ;PCODE: $0000013F VOL: 0
 ;PCODE: $00000140 VOL: 0
 ;PCODE: $00000141 VOL: 0
@@ -368,6 +366,10 @@
 ;PCODE: $00000149 VOL: 0
 ;PCODE: $0000014A VOL: 0
 ;PCODE: $0000014B VOL: 0
+;	Address1 -> Y+3
+;	Address2 -> Y+2
+;	Address3 -> Y+1
+;	Address4 -> Y+0
 ;PCODE: $0000014C VOL: 0
 ;PCODE: $0000014D VOL: 0
 ;PCODE: $0000014E VOL: 0
@@ -476,13 +478,9 @@
 ;PCODE: $000001B5 VOL: 0
 ;PCODE: $000001B6 VOL: 0
 ;PCODE: $000001B7 VOL: 0
-;#include "DC.h"
 ;PCODE: $000001B8 VOL: 0
 ;PCODE: $000001B9 VOL: 0
 ;PCODE: $000001BA VOL: 0
-;	motor -> Y+2
-;	dir_motor -> Y+1
-;	speed -> Y+0
 ;PCODE: $000001BB VOL: 0
 ;PCODE: $000001BC VOL: 0
 ;PCODE: $000001BD VOL: 0
@@ -512,9 +510,13 @@
 ;PCODE: $000001D5 VOL: 0
 ;PCODE: $000001D6 VOL: 0
 ;PCODE: $000001D7 VOL: 0
+;#include "DC.h"
 ;PCODE: $000001D8 VOL: 0
 ;PCODE: $000001D9 VOL: 0
 ;PCODE: $000001DA VOL: 0
+;	motor -> Y+2
+;	dir_motor -> Y+1
+;	speed -> Y+0
 ;PCODE: $000001DB VOL: 0
 ;PCODE: $000001DC VOL: 0
 ;PCODE: $000001DD VOL: 0
@@ -570,130 +572,170 @@
 ;PCODE: $0000020F VOL: 0
 ;PCODE: $00000210 VOL: 0
 ;PCODE: $00000211 VOL: 0
-;#include <stdlib.h>
-;
-;void main(void)
-; 0000 000D {
 ;PCODE: $00000212 VOL: 0
-; 0000 000E  Init_System();
 ;PCODE: $00000213 VOL: 0
-; 0000 000F  RF_Config();
 ;PCODE: $00000214 VOL: 0
-; 0000 0010  RF_Init();
 ;PCODE: $00000215 VOL: 0
-; 0000 0011  control_motor(2,1,0);
 ;PCODE: $00000216 VOL: 0
 ;PCODE: $00000217 VOL: 0
 ;PCODE: $00000218 VOL: 0
 ;PCODE: $00000219 VOL: 0
 ;PCODE: $0000021A VOL: 0
 ;PCODE: $0000021B VOL: 0
-; 0000 0012 control_motor(1,1,0);
 ;PCODE: $0000021C VOL: 0
 ;PCODE: $0000021D VOL: 0
 ;PCODE: $0000021E VOL: 0
 ;PCODE: $0000021F VOL: 0
 ;PCODE: $00000220 VOL: 0
 ;PCODE: $00000221 VOL: 0
-; 0000 0013 glcd_moveto(0,0);
 ;PCODE: $00000222 VOL: 0
 ;PCODE: $00000223 VOL: 0
 ;PCODE: $00000224 VOL: 0
 ;PCODE: $00000225 VOL: 0
-; 0000 0014 glcd_outtext("hello");
 ;PCODE: $00000226 VOL: 0
 ;PCODE: $00000227 VOL: 0
 ;PCODE: $00000228 VOL: 0
-; 0000 0015 delay_ms(300);
 ;PCODE: $00000229 VOL: 0
 ;PCODE: $0000022A VOL: 0
-; 0000 0016 glcd_clear();
 ;PCODE: $0000022B VOL: 0
-; 0000 0017 BL_Nokia = 0;
 ;PCODE: $0000022C VOL: 0
 ;PCODE: $0000022D VOL: 0
-; 0000 0018 while (1)
 ;PCODE: $0000022E VOL: 0
-; 0000 0019       {
-; 0000 001A         RX_Mode();
 ;PCODE: $0000022F VOL: 0
-; 0000 001B         if(IRQ==0)
 ;PCODE: $00000230 VOL: 0
 ;PCODE: $00000231 VOL: 0
+;#include <stdlib.h>
+;
+;void main(void)
+; 0000 0009 {
 ;PCODE: $00000232 VOL: 0
-; 0000 001C             {
-; 0000 001D                 glcd_clear();
+; 0000 000A Init_System();
 ;PCODE: $00000233 VOL: 0
-; 0000 001E                 RF_RX_Read();
+; 0000 000B RF_Config();
 ;PCODE: $00000234 VOL: 0
-; 0000 001F                 glcd_moveto(0,0);
+; 0000 000C RF_Init();
 ;PCODE: $00000235 VOL: 0
+; 0000 000D control_motor(2,1,0);
 ;PCODE: $00000236 VOL: 0
 ;PCODE: $00000237 VOL: 0
 ;PCODE: $00000238 VOL: 0
-; 0000 0020                 itoa(receive.analog_l, glcd_buff);
 ;PCODE: $00000239 VOL: 0
 ;PCODE: $0000023A VOL: 0
 ;PCODE: $0000023B VOL: 0
+; 0000 000E control_motor(1,1,0);
 ;PCODE: $0000023C VOL: 0
-; 0000 0021                 glcd_outtext(glcd_buff);
 ;PCODE: $0000023D VOL: 0
 ;PCODE: $0000023E VOL: 0
-; 0000 0022                 glcd_moveto(20,0);
 ;PCODE: $0000023F VOL: 0
 ;PCODE: $00000240 VOL: 0
 ;PCODE: $00000241 VOL: 0
+; 0000 000F glcd_moveto(0,0);
 ;PCODE: $00000242 VOL: 0
-; 0000 0023                 itoa(receive.analog_r, glcd_buff);
 ;PCODE: $00000243 VOL: 0
 ;PCODE: $00000244 VOL: 0
 ;PCODE: $00000245 VOL: 0
+; 0000 0010 glcd_outtext("hello");
 ;PCODE: $00000246 VOL: 0
 ;PCODE: $00000247 VOL: 0
-; 0000 0024                 glcd_outtext(glcd_buff);
 ;PCODE: $00000248 VOL: 0
+; 0000 0011 delay_ms(300);
 ;PCODE: $00000249 VOL: 0
-; 0000 0025                 glcd_moveto(0,20);
 ;PCODE: $0000024A VOL: 0
+; 0000 0012 glcd_clear();
 ;PCODE: $0000024B VOL: 0
+; 0000 0013 BL_Nokia = 0;
 ;PCODE: $0000024C VOL: 0
 ;PCODE: $0000024D VOL: 0
-; 0000 0026                 itoa(receive.digital_l, glcd_buff);
+; 0000 0014 while (1)
 ;PCODE: $0000024E VOL: 0
+; 0000 0015       {
+; 0000 0016         RX_Mode();
 ;PCODE: $0000024F VOL: 0
+; 0000 0017         if(IRQ==0)
 ;PCODE: $00000250 VOL: 0
 ;PCODE: $00000251 VOL: 0
 ;PCODE: $00000252 VOL: 0
-; 0000 0027                 glcd_outtext(glcd_buff);
+; 0000 0018             {
+; 0000 0019                 LED=!LED;
 ;PCODE: $00000253 VOL: 0
 ;PCODE: $00000254 VOL: 0
-; 0000 0028                 glcd_moveto(20,20);
 ;PCODE: $00000255 VOL: 0
 ;PCODE: $00000256 VOL: 0
 ;PCODE: $00000257 VOL: 0
 ;PCODE: $00000258 VOL: 0
-; 0000 0029                 itoa(receive.digital_r, glcd_buff);
 ;PCODE: $00000259 VOL: 0
 ;PCODE: $0000025A VOL: 0
 ;PCODE: $0000025B VOL: 0
 ;PCODE: $0000025C VOL: 0
+; 0000 001A                 glcd_clear();
 ;PCODE: $0000025D VOL: 0
-; 0000 002A                 glcd_outtext(glcd_buff);
+; 0000 001B                 RF_RX_Read();
 ;PCODE: $0000025E VOL: 0
+; 0000 001C                 glcd_moveto(0,0);
 ;PCODE: $0000025F VOL: 0
-; 0000 002B             }
-; 0000 002C 
-; 0000 002D 
-; 0000 002E 
-; 0000 002F       }
 ;PCODE: $00000260 VOL: 0
 ;PCODE: $00000261 VOL: 0
 ;PCODE: $00000262 VOL: 0
-; 0000 0030 }
+; 0000 001D                 itoa(receive.analog_l, glcd_buff);
 ;PCODE: $00000263 VOL: 0
 ;PCODE: $00000264 VOL: 0
 ;PCODE: $00000265 VOL: 0
+;PCODE: $00000266 VOL: 0
+; 0000 001E                 glcd_outtext(glcd_buff);
+;PCODE: $00000267 VOL: 0
+;PCODE: $00000268 VOL: 0
+; 0000 001F                 glcd_moveto(20,0);
+;PCODE: $00000269 VOL: 0
+;PCODE: $0000026A VOL: 0
+;PCODE: $0000026B VOL: 0
+;PCODE: $0000026C VOL: 0
+; 0000 0020                 itoa(receive.analog_r, glcd_buff);
+;PCODE: $0000026D VOL: 0
+;PCODE: $0000026E VOL: 0
+;PCODE: $0000026F VOL: 0
+;PCODE: $00000270 VOL: 0
+;PCODE: $00000271 VOL: 0
+; 0000 0021                 glcd_outtext(glcd_buff);
+;PCODE: $00000272 VOL: 0
+;PCODE: $00000273 VOL: 0
+; 0000 0022                 glcd_moveto(0,20);
+;PCODE: $00000274 VOL: 0
+;PCODE: $00000275 VOL: 0
+;PCODE: $00000276 VOL: 0
+;PCODE: $00000277 VOL: 0
+; 0000 0023                 itoa(receive.digital_l, glcd_buff);
+;PCODE: $00000278 VOL: 0
+;PCODE: $00000279 VOL: 0
+;PCODE: $0000027A VOL: 0
+;PCODE: $0000027B VOL: 0
+;PCODE: $0000027C VOL: 0
+; 0000 0024                 glcd_outtext(glcd_buff);
+;PCODE: $0000027D VOL: 0
+;PCODE: $0000027E VOL: 0
+; 0000 0025                 glcd_moveto(20,20);
+;PCODE: $0000027F VOL: 0
+;PCODE: $00000280 VOL: 0
+;PCODE: $00000281 VOL: 0
+;PCODE: $00000282 VOL: 0
+; 0000 0026                 itoa(receive.digital_r, glcd_buff);
+;PCODE: $00000283 VOL: 0
+;PCODE: $00000284 VOL: 0
+;PCODE: $00000285 VOL: 0
+;PCODE: $00000286 VOL: 0
+;PCODE: $00000287 VOL: 0
+; 0000 0027                 glcd_outtext(glcd_buff);
+;PCODE: $00000288 VOL: 0
+;PCODE: $00000289 VOL: 0
+; 0000 0028             }
+; 0000 0029       }
+;PCODE: $0000028A VOL: 0
+;PCODE: $0000028B VOL: 0
+;PCODE: $0000028C VOL: 0
+; 0000 002A }
+;PCODE: $0000028D VOL: 0
+;PCODE: $0000028E VOL: 0
+;PCODE: $0000028F VOL: 0
 
 	.DSEG
-_0x54:
+_0x55:
 	.BYTE 0x6
