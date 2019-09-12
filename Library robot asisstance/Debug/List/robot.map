@@ -1,0 +1,50 @@
+RAM Allocation [bytes]
+Variable                                                                          Address   Size
+------------------------------------------------------------------------------------------------
+RC8                                                                               0x0260       1
+receive                                                                           0x0261       8
+Code_tay_cam2                                                                     0x0269       1
+Code_tay_cam3                                                                     0x026A       1
+Code_tay_cam4                                                                     0x026B       1
+_seed                                                                             0x026C       4
+
+EEPROM Allocation [bytes]
+Variable                                                                          Address   Size
+------------------------------------------------------------------------------------------------
+
+Register Allocation
+Variable                                                                          Register  Size
+------------------------------------------------------------------------------------------------
+Code_tay_cam1                                                                     R5           1
+dem                                                                               R4           1
+dem1                                                                              R7           1
+steering                                                                          R6           1
+RC2                                                                               R9           1
+RC3                                                                               R8           1
+RC4                                                                               R11          1
+RC5                                                                               R10          1
+RC6                                                                               R13          1
+RC7                                                                               R12          1
+
+FLASH Allocation [words]
+Function                                                                          Address   Size
+------------------------------------------------------------------------------------------------
+timer0_ovf_isr                                                                    0x0006E     21
+timer2_ovf_isr                                                                    0x00083     46
+init                                                                              0x000B1     56
+control_motor                                                                     0x000E9     60
+dung_yen                                                                          0x00125      7
+di_lui                                                                            0x0012C      9
+di_thang                                                                          0x00135      9
+start_servo                                                                       0x0013E      8
+ban                                                                               0x00146     10
+SPI_RW                                                                            0x00150     28
+SPI_Read                                                                          0x0016C     20
+RF_Init                                                                           0x00180      8
+RF_Write3                                                                         0x00196     15
+RF_Command                                                                        0x001A5      6
+RF_Write_Address                                                                  0x001AB     42
+RX_Mode                                                                           0x001D5      6
+RF_Config                                                                         0x001DB     45
+RF_RX_Read                                                                        0x00208     44
+main                                                                              0x00234    216

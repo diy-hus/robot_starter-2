@@ -1,0 +1,8 @@
+VERSION:3 SOURCE_TIMESTAMP:4F267939
+NODE:F LEVEL:0 LINE:1 "control_motor(unsigned char motor,unsigned char dir_motor,unsigned char speed)"
+NODE:F LEVEL:0 LINE:29 "dung_yen(void)"
+NODE:F LEVEL:0 LINE:34 "di_lui(int speed)"
+NODE:F LEVEL:0 LINE:39 "di_thang(int speed)"
+NODE:F LEVEL:0 LINE:44 "start_servo(void)"
+NODE:F LEVEL:0 LINE:54 "stop_servo(void)"
+NODE:F LEVEL:0 LINE:65 "ban(void)"
